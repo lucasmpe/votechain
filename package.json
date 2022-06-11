@@ -1,0 +1,27 @@
+{
+  "name": "votechain",
+  "version": "1.0.0",
+  "description": "Proyecto para el hackathon de r/argentina-programa sobre la red Stellar",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucasmpe/votechain.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucasmpe/votechain/issues"
+  },
+  "homepage": "https://github.com/lucasmpe/votechain#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "stellar-sdk": "^10.1.2"
+  }
+}
