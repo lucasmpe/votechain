@@ -7,14 +7,11 @@ const server = new Server("https://horizon-testnet.stellar.org");
 export default class StellarService {
 
     async createKeypair(id) {
-
         const kp = Keypair.random();
-
         return new StellarAccount(id, kp.publicKey(), kp.secret());
     }
 
-    async createAccount(entityAccount, initialAmount) {
-
+    async createAccount(entityAccount, initialAmount = '5') {
         const issuerAccount = await server.loadAccount(issuerKeyPair.publicKey());
      
         const tx = new TransactionBuilder(issuerAccount, {
@@ -25,7 +22,7 @@ export default class StellarService {
                 destination: entityAccount.publicKey,
                 startingBalance: initialAmount
             }))
-            .setTimeout(180)
+            .setTimeout(30)
             .build();
 
         console.log(tx.toXDR());
