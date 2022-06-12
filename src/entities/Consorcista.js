@@ -2,24 +2,24 @@ export default class Consorcista {
 /**
 * @param {String} id
 * @param {String} depto
-* @param {Integer} peso
+* @param {Integer} vt
 * @param {StellarAccount} account
-* @param {Array<Asset>} assets
+* @param {Array<vt>} vts
 */
 
-  constructor(id, depto, peso, account = null, assets = []) {
+  constructor(id, depto, vt, account = null, vts = []) {
     this.id = id;
     this.depto = depto;
-    this.peso = peso;
+    this.vt = vt;
     this.account = account;
-    this.assets = assets;
+    this.vts = vts;
   }
 
   setStellarAccount(account) {
     this.account = account;
   }
 
-  addAssets () {};
+  addvts () {};
 
   votar(Votacion, amount) {
     return true;

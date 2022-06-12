@@ -23,6 +23,10 @@ export default class Consorcio {
     this.consorcistas.push(consorcista);
   }
 
+  getTotalVts() {
+    return this.consorcistas.map(consorcista => Number(consorcista.vt)).reduce((pv, cv) => pv + cv, 0);
+  }
+
   setAssets() {}
 
   orderAsset() {}

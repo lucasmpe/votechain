@@ -10,48 +10,26 @@ export default class ConsorcioService {
     this.repository = new Repository();
   }
 
-  async create(dataConsorcio) {
-    console.log("ConsorcioService.create");
+  // diferencias amount que le pasamos a la cuenta stellar!
+  async create(name, consorcistas) {
+
     try {
-      const { name, consorcistas } = dataConsorcio;
+      const newConsorcio = new Consorcio(name, name);
+      const consorcioSAccount = await this.stellarService.createKeypair(newConsorcio.id);
+      newConsorcio.setStellarAccount(consorcioSAccount);
+      await this.stellarService.createAccount(newConsorcio.account, '100');
 
-      // const consorcioId = generateId(name)
+      for (const consorcista of consorcistas) {
+        
+        const newConsorcista = new Consorcista(name + consorcista.depto, consorcista.depto, consorcista.vt);
+        const consorcistaSAccount = await this.stellarService.createKeypair(newConsorcista.id);
+        newConsorcista.setStellarAccount(consorcistaSAccount);
+        await this.stellarService.createAccount(newConsorcista.account);
+        newConsorcio.addConsorcista(newConsorcista);
+      };
 
-      /** SE CREAN INSTANCIAS Concorcistas SEGÚN LOS DATOS DEL FORM */
-      const consorcista1 = new Consorcista('1cons' + '1', consorcistas[0].depto, consorcistas[0].vt);
-      const consorcista2 = new Consorcista('2cons' + '1', consorcistas[1].depto, consorcistas[1].vt);
+      this.repository.saveConsorcio(newConsorcio);
 
-      /** SE CREAN LAS CUENTAS PARA LOS CONSORCISTAS */
-      const consorcista1SAccount = await this.stellarService.createKeypair(consorcista1.id);
-      const consorcista2SAccount = await this.stellarService.createKeypair(consorcista2.id);
-
-      /** SE AGREGAN LAS CUENTAS DE STELLAR A CONSORCISTAS */
-      consorcista1.setStellarAccount(consorcista1SAccount);
-      consorcista2.setStellarAccount(consorcista2SAccount);
-
-      /** SE CREA LA INSTANCIA Concorcio SEGÚN LOS DATOS DEL FORM */
-      const consorcio = new Consorcio('1', name);
-
-      /** SE CREA LA CUENTA STELLAR PARA EL CONSORCIO */
-      const consorcioSAccount = await this.stellarService.createKeypair(consorcio.id);
-
-      /** SE AGREGA LA CUENTA DE STELLAR A CONSORCIO */
-      consorcio.setStellarAccount(consorcioSAccount);
-
-      /** SE AGREGAN LOS CONSORCISTAS A CONSORCIO */
-      consorcio.addConsorcista(consorcista1);
-      consorcio.addConsorcista(consorcista2);
-
-
-      await this.stellarService.createAccount(consorcio.account);
-
-      //for
-      await this.stellarService.createAccount(consorcista1.account);
-      await this.stellarService.createAccount(consorcista2.account);
-
-      await this.repository.saveConsorcio(consorcio)
-
-    
     } catch (error) {
       console.log(error);
     }
