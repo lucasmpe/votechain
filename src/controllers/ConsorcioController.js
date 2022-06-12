@@ -1,4 +1,5 @@
 import ConsorcioService from '../services/ConsorcioService.js'
+import VotacionService from '../services/VotacionService.js'
 
 export default class ConsorcioController {
 

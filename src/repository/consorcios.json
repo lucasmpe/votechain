@@ -11,48 +11,48 @@
             {
                 "id": "consorcioUno1A",
                 "depto": "1A",
-                "peso": "100",
+                "vt": "100",
                 "account": {
                     "id": "consorcioUno1A",
                     "publicKey": "GCAY4LDGVTOYFKHJKQKSYMSJHFXTBNE3LRUAKWT57SDKLEBB72D5OLGO",
                     "secret": "SDTWOG2XDWHUOCUMHR6QZCIKU4IXYRDVTXXHKCSVSKD3QAX57XYKF7RH"
                 },
-                "assets": []
+                "vts": []
             },
             {
                 "id": "consorcioUno1B",
                 "depto": "1B",
-                "peso": "130",
+                "vt": "130",
                 "account": {
                     "id": "consorcioUno1B",
                     "publicKey": "GBHSZCX6FEFONLBPNF52HW7IQ34XSEDO4D5FK4W2VJ7SMCPB2WY4Y3EL",
                     "secret": "SBB63XLK4BZL7BCXEORJMSCI5MGQLL2EBPPOGWNJZDVVFY363Y4E2EWB"
                 },
-                "assets": []
+                "vts": []
             },
             {
                 "id": "consorcioUno1C",
                 "depto": "1C",
-                "peso": "120",
+                "vt": "120",
                 "account": {
                     "id": "consorcioUno1C",
                     "publicKey": "GAEWVV7CWU7AQS6KPVH5TE4SROE5MQSBJD3RJ4KN6HGHA4OAOSZYA56F",
                     "secret": "SCJXGMHSBV3C6SVY6MJMZPYNYZMOHJ5WCDBQWOVOZX46CHYBLVVIXARA"
                 },
-                "assets": []
+                "vts": []
             },
             {
                 "id": "consorcioUno1D",
                 "depto": "1D",
-                "peso": "100",
+                "vt": "100",
                 "account": {
                     "id": "consorcioUno1D",
                     "publicKey": "GB4JVIWEZH3X4PMRV2RRIF4I7XGIHF3WPW5TF5CTFUNOH7PLJSXKRPRT",
                     "secret": "SAPVUMXS2GXTTZ4HL7ZDTVXX45Q6NEBG3V5H2E3EE2POPE64HM24DPX6"
                 },
-                "assets": []
+                "vts": []
             }
         ],
-        "assets": []
+        "vts": []
     }
 ]

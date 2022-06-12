@@ -42,35 +42,34 @@ export default class StellarService {
 
 
     async issueAnAsset(entityAccount, amount, assetCode) {
-        const receiverKp = Keypair.fromSecret(receiver.secret);
+        const entityAccountKp = Keypair.fromSecret(entityAccount.secret);
 
         const issuerAccount = await server.loadAccount(issuerKeyPair.publicKey());
-        // const receiverAccount = await server.loadAccount(receiverKp.publicKey());
 
-        const randomCode = "CONS" + Math.floor(Math.random() * 1000).toString();
-        const token = new Asset(randomCode, issuerKeyPair.publicKey());
+        // const randomCode = assetCode + Math.floor(Math.random() * 1000).toString();
+        const newAsset = new Asset(assetCode, issuerKeyPair.publicKey());
 
         const tx = new TransactionBuilder(issuerAccount, {
             fee: await server.fetchBaseFee(),
-            networkPassphrase: StellarSdk.Networks.TESTNET,
+            networkPassphrase: 'Test SDF Network ; September 2015',
         })
             .addOperation(Operation.changeTrust({
-                source: receiverKp.publicKey(),
-                asset: token,
+                source: entityAccount.publicKey,
+                asset: newAsset,
             }))
             .addOperation(Operation.payment({
-                amount: "8000", //calcular() ||
-                asset: token,
-                destination: receiverKp.publicKey()
+                amount: amount.toString(),
+                asset: newAsset,
+                destination: entityAccount.publicKey
             }))
-            .setTimeout(180)
+            .setTimeout(30)
             .build();
 
         // Mostrar el XDR resultante en el laboratorio
         console.log(tx.toXDR());
 
         // Ambos necesitan firmar, el distribuidor porque está creando confianza...
-        tx.sign(receiverKp);
+        tx.sign(entityAccountKp);
         // ... y el issuer porque está pagando
         tx.sign(issuerKeyPair);
 
