@@ -47,6 +47,22 @@ export default class ConsorcioController {
         }
     };
 
+    async viewVotingResults(req, res) {
+        try {
+            const {
+                idVotacion,
+                id: idConsorcio
+            } = req.params;
+
+            const votacionService = new VotacionService();
+            const results = await votacionService.viewVotingResults(idVotacion, idConsorcio);
+
+            res.send(`estas viendo la votación con id ${JSON.stringify(results)}`);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
 
 }
 

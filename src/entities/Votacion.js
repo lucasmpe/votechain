@@ -23,4 +23,8 @@ export default class Votacion {
         //es mayor a ending
     }
 
+    showResults(IdVotacion) {
+        
+    }
+
 }

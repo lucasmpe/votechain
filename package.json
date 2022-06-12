@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "express": "^4.18.1",
+    "node-fetch": "^3.2.6",
     "stellar-sdk": "^10.1.2"
   }
 }

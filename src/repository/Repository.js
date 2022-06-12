@@ -38,6 +38,23 @@ export default class Repository {
     }
 
     saveConsorcio(consorcio) {
+        try {
+
+            //const consorcios = JSON.parse(fs.readFileSync(consorcioFile));
+            const consorcios = JSON.parse(fs.readFileSync(process.cwd() + '/repository/consorcios.json'));
+
+            consorcios.push(consorcio);
+            
+            fs.writeFileSync(process.cwd() + '/repository/consorcios.json', JSON.stringify(consorcios));
+            console.log('The consorcio was saved to file!');
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
+    updateConsorcio(consorcio) {
 
         try {
 
@@ -49,7 +66,7 @@ export default class Repository {
             consorcios.splice(indexConsorcio, 1, consorcio);
             
             fs.writeFileSync(process.cwd() + '/repository/consorcios.json', JSON.stringify(consorcios));
-            console.log('The consorcio was appended to file!');
+            console.log('The consorcio was updated to file!');
 
         } catch (error) {
             console.log(error)

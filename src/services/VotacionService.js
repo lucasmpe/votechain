@@ -1,7 +1,7 @@
 import Votacion from '../entities/Votacion.js';
 import StellarService from '../services/StellarService.js'
 import Repository from '../repository/Repository.js'
-
+import fetch from 'node-fetch';
 export default class VotacionService {
 
   constructor() {
@@ -39,7 +39,7 @@ export default class VotacionService {
     // falta setear la votacion al consorcio (analizar necesida de hacerlo en esta ocasio) [] de Votaciones
 
 
-    this.repository.saveConsorcio(consorcio);
+    this.repository.updateConsorcio(consorcio);
     this.repository.saveVoting(newVotacion);
 
   }
@@ -75,10 +75,10 @@ export default class VotacionService {
 
   async vote(idVotacion, idConsorcista, option, amountVt) {
 
-    const {ownerId} = this.repository.getVotingById(idVotacion);
+    const { ownerId } = this.repository.getVotingById(idVotacion);
 
     // 1° set el voto en el array vts --> votosEmitidos del consorcista
-    
+
     const consorcio = this.repository.getConsorcioById(ownerId);
 
     const consorcista = consorcio.consorcistas.find(consorcista => consorcista.id === idConsorcista);
@@ -89,15 +89,66 @@ export default class VotacionService {
       // descontar asset al consorcio
     } else console.log('no pudiste votar');
 
-    
+
 
     // 3° guardar
 
-    this.repository.saveConsorcio(consorcio);
+    this.repository.updateConsorcio(consorcio);
 
     return consorcista.getVotosEmitidos(idVotacion);
   }
 
+
+  async viewVotingResults(idVotacion, idConsorcio) {
+
+    let resultsVotacion = [];
+    let countVotes = []; 
+
+    const votacion = this.repository.getVotingById(idVotacion);
+
+    const { consorcistas } = this.repository.getConsorcioById(idConsorcio);
+
+    try {
+
+      for (const consorcista of consorcistas) {
+
+        const response = await fetch(
+          `https://horizon-testnet.stellar.org/accounts/${consorcista.account.publicKey}/payments?order=desc`,
+        );
+
+        const { _embedded } = await response.json();
+
+        for (const record of _embedded.records) {
+          const {
+            id,
+            asset_code: option,
+            from: consorcio,
+            to: consorcista,
+            amount: vt
+          } = record;
+  
+          resultsVotacion.push({ id, option, consorcio, consorcista, vt })
+        }
+      }
+
+      const listOption = votacion.options.map(elem => elem.option)
+
+      for (const option of listOption) {
+        const votes = resultsVotacion.filter(record => record.option === option)
+          .map(record => Number(record.vt))
+          .reduce((pv, cv) => pv + cv, 0);
+
+          countVotes.push({option, votes});
+      }
+
+      console.log("SUCCESS!");
+      return countVotes;
+
+    } catch (e) {
+      console.error("ERROR!", e);
+    }
+
+  }
 
 }
 
