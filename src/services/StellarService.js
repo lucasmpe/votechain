@@ -82,6 +82,47 @@ export default class StellarService {
 
     };
 
+    async makePayment(entityEmitAccount, entityReceiverAccount, amount, assetCode) {
+        const emitAccountKp = Keypair.fromSecret(entityEmitAccount.secret);
+        const receiverAccountKp = Keypair.fromSecret(entityReceiverAccount.secret);
+
+        const emitAccount = await server.loadAccount(emitAccountKp.publicKey());
+
+        const asset = new Asset(assetCode, issuerKeyPair.publicKey());
+
+        const tx = new TransactionBuilder(emitAccount, {
+            fee: await server.fetchBaseFee(),
+            networkPassphrase: 'Test SDF Network ; September 2015',
+        })
+            .addOperation(Operation.changeTrust({
+                source: receiverAccountKp.publicKey(),
+                asset: asset,
+            }))
+            .addOperation(Operation.payment({
+                amount: amount.toString(),
+                asset: asset,
+                destination: receiverAccountKp.publicKey()
+            }))
+            .setTimeout(30)
+            .build();
+
+        // Mostrar el XDR resultante en el laboratorio
+        console.log(tx.toXDR());
+
+        // Ambos necesitan firmar, el distribuidor porque está creando confianza...
+        tx.sign(receiverAccountKp);
+        // ... y el issuer porque está pagando
+        tx.sign(emitAccountKp);
+
+        try {
+            const txResult = await server.submitTransaction(tx);
+            console.log(txResult);
+        } catch (e) {
+            console.error(e);
+        }
+
+    };
+
 
 
 

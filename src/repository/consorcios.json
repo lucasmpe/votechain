@@ -4,8 +4,8 @@
         "name": "consorcioUno",
         "account": {
             "id": "consorcioUno",
-            "publicKey": "GBL6UUADIILWSWL3OIKWH7722G26PGFSDAVJXJEWX664YS272BWVL3G3",
-            "secret": "SB3M3CIYOTGEVKKGN27PT2CWY3CVZFH6KVHTJ5W24RGPOXRP6MHBUKXE"
+            "publicKey": "GBAYBMCBNZCSEWOI2GQJ5IVU77CIDFOIX76HSIW3F7J2BFK745HSCS35",
+            "secret": "SBPBFI26FYSHLPNNNWJD5H7DSULMKTPAOHPWA6W6V5NW65Q6WH35DT2G"
         },
         "consorcistas": [
             {
@@ -14,10 +14,20 @@
                 "vt": "100",
                 "account": {
                     "id": "consorcioUno1A",
-                    "publicKey": "GCAY4LDGVTOYFKHJKQKSYMSJHFXTBNE3LRUAKWT57SDKLEBB72D5OLGO",
-                    "secret": "SDTWOG2XDWHUOCUMHR6QZCIKU4IXYRDVTXXHKCSVSKD3QAX57XYKF7RH"
+                    "publicKey": "GBAZHM5WK5BII3DA2ETQ5UBZCMDDNUGER2YQYTFMWZBADKVYNJHRD4ZZ",
+                    "secret": "SDOW6ML22YMBZPXE7DMHGQ2JCPYA5P6PD4OLDQON2VC45HM4L7ENIKM6"
                 },
-                "vts": []
+                "vts": [
+                    {
+                        "votacion": "1",
+                        "votosEmitidos": [
+                            {
+                                "option": "VOT1OP2",
+                                "vt": "50"
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 "id": "consorcioUno1B",
@@ -25,10 +35,15 @@
                 "vt": "130",
                 "account": {
                     "id": "consorcioUno1B",
-                    "publicKey": "GBHSZCX6FEFONLBPNF52HW7IQ34XSEDO4D5FK4W2VJ7SMCPB2WY4Y3EL",
-                    "secret": "SBB63XLK4BZL7BCXEORJMSCI5MGQLL2EBPPOGWNJZDVVFY363Y4E2EWB"
+                    "publicKey": "GCPJWU7JIA4COE2424QUJUUDKRMHEKXABDICBQYIAFJYEHN2P6B6FJWT",
+                    "secret": "SC2DQNQ32XYC4FEDM5NYCOOYUXYRPBIWYVJ72PYEMAESSZVIUXOYNHEG"
                 },
-                "vts": []
+                "vts": [
+                    {
+                        "votacion": "1",
+                        "votosEmitidos": []
+                    }
+                ]
             },
             {
                 "id": "consorcioUno1C",
@@ -36,23 +51,47 @@
                 "vt": "120",
                 "account": {
                     "id": "consorcioUno1C",
-                    "publicKey": "GAEWVV7CWU7AQS6KPVH5TE4SROE5MQSBJD3RJ4KN6HGHA4OAOSZYA56F",
-                    "secret": "SCJXGMHSBV3C6SVY6MJMZPYNYZMOHJ5WCDBQWOVOZX46CHYBLVVIXARA"
+                    "publicKey": "GAW63XJGZJ5CPYLKQMASWBBQHSUPS63GTF6JUAWEFDLHZLF4TCLCXRGK",
+                    "secret": "SBBUUGAGDHR4EBEXBCOQA2UZAPHDYNGSG4RMS22BHYWPRIBD4NR6UBF5"
                 },
-                "vts": []
+                "vts": [
+                    {
+                        "votacion": "1",
+                        "votosEmitidos": []
+                    }
+                ]
             },
             {
                 "id": "consorcioUno1D",
                 "depto": "1D",
-                "vt": "100",
+                "vt": "180",
                 "account": {
                     "id": "consorcioUno1D",
-                    "publicKey": "GB4JVIWEZH3X4PMRV2RRIF4I7XGIHF3WPW5TF5CTFUNOH7PLJSXKRPRT",
-                    "secret": "SAPVUMXS2GXTTZ4HL7ZDTVXX45Q6NEBG3V5H2E3EE2POPE64HM24DPX6"
+                    "publicKey": "GASKG6WVDXJ72NFOHBAKV4AQHXOEMMC76QCS5JTZT3UGX4YQUSNFQFMQ",
+                    "secret": "SC6ICXVJ4RU2T7AS3JCQL6XW3OVFTCBTTVPKAHV2ZEI7SB6T6OM2EB3B"
                 },
-                "vts": []
+                "vts": [
+                    {
+                        "votacion": "1",
+                        "votosEmitidos": []
+                    }
+                ]
             }
         ],
-        "vts": []
+        "assets": [
+            {
+                "assetCode": "VOT1OP1",
+                "amount": 530
+            },
+            {
+                "assetCode": "VOT1OP2",
+                "amount": 530
+            },
+            {
+                "assetCode": "VOT1OP3",
+                "amount": 530
+            }
+        ],
+        "votaciones": []
     }
 ]

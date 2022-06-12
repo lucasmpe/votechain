@@ -1,5 +1,6 @@
 import express from 'express';
 import consorcioRouter from './routes/consorcioRouter.js';
+import consorcistaRouter from './routes/consorcistaRouter.js';
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
 
@@ -16,7 +17,8 @@ app.get('/', (req, res) => {
   res.send('home');
 });
 
-app.use(consorcioRouter)
+app.use(consorcioRouter);
+app.use(consorcistaRouter);
 
 
 app.listen(3000);

@@ -15,6 +15,10 @@ export default class Votacion {
         return this.options.map(option => option.option);
     }
 
+    getOwnerId() {
+        return this.ownerId;
+    }
+
     isActive() {
         //es mayor a ending
     }
