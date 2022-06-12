@@ -1,11 +1,8 @@
-import ConsorcioService from '../services/ConsorcioService.js';
 import VotacionService from '../services/VotacionService.js'
-
 export default class ConsorcistaController {
 
     constructor() {
-        //this.consorcioService = new ConsorcioService(); 
-       
+        // votacio service  
     }
 
     viewVoting(req, res) {
@@ -15,13 +12,10 @@ export default class ConsorcistaController {
                 id: idConsorcista
             } = req.params;
 
-        console.log('votacion', idVotacion, idConsorcista)
             const votacionService = new VotacionService();
             const dataVotacion = votacionService.viewVoting(idVotacion, idConsorcista);
 
-            
-
-            res.send(`estas viendo la votación con id ${dataVotacion.id}`)
+            res.send(`Estás viendo la votación con id ${dataVotacion.id}`)
         } catch (error) {
             console.log(error);
         }
@@ -38,12 +32,11 @@ export default class ConsorcistaController {
                 minVoters,
                 ending,
             } = req.body;
-            
+
             const votacionService = new VotacionService();
             const dataVotacion = await votacionService.create(id, ownerId, details, subject, options, minVoters, ending);
 
-            console.log(dataVotacion)
-            res.send(`se creó votacion ${id}`)
+            res.send(`se creó votacion ${id}`);
         } catch (error) {
             console.log(error);
         }
@@ -61,17 +54,13 @@ export default class ConsorcistaController {
                 amountVt
             } = req.body;
 
-    
             const votacionService = new VotacionService();
             const saldo = await votacionService.vote(idVotacion, idConsorcista, option, amountVt);
 
-            
-
-            res.send(`tu voto esta ok. Te quedan de saldo ${saldo}`)
+            res.send(`Tu voto fue registrado correctamente. Te quedan de saldo ${saldo}`)
         } catch (error) {
             console.log(error);
         }
     };
-
 
 }

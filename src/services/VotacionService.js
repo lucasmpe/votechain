@@ -1,6 +1,6 @@
 import Votacion from '../entities/Votacion.js';
-import StellarService from '../services/StellarService.js'
-import Repository from '../repository/Repository.js'
+import StellarService from '../services/StellarService.js';
+import Repository from '../repository/Repository.js';
 import fetch from 'node-fetch';
 export default class VotacionService {
 
@@ -12,55 +12,40 @@ export default class VotacionService {
   async create(id, ownerId, details, subject, options, minVoters, ending) {
 
     const consorcio = this.repository.getConsorcioById(ownerId);
-
     const totalVt = consorcio.getTotalVts();
 
     const newVotacion = new Votacion(id, ownerId, details, subject, options, minVoters, ending);
     const optionsCode = newVotacion.getOptions();
 
-    // PAGO AL CONSORCIO
     try {
       for (const assetCode of optionsCode) {
         await this.stellarService.issueAnAsset(consorcio.account, totalVt, assetCode);
-        // agregar asset al consorcio --> [{Vot1Op1: xxx}, {Vot1Op2: xxx}, ..., {Vot2Op1}, ...] xxx = vtTotales
         consorcio.addAsset(assetCode, totalVt);
       }
     } catch (error) {
       console.log(error);
     }
 
-    console.log(consorcio)
     for (const consorcista of consorcio.consorcistas) {
-      console.log(consorcista)
-      // agregar a vts de consorcistas vts = [{votacion: id, votosEmitidos: []}, ...]
       consorcista.addVts({ votacion: id, votosEmitidos: [] });
     }
 
-    // falta setear la votacion al consorcio (analizar necesida de hacerlo en esta ocasio) [] de Votaciones
-
+    // falta agregar la votacion al consorcio (analizar necesida de hacerlo en esta ocasio) [] de Votaciones
 
     this.repository.updateConsorcio(consorcio);
     this.repository.saveVoting(newVotacion);
 
   }
 
-
   viewVoting(idVotacion, idConsorcista) {
-    // a futuro validar que el consorcista esté habilitado para votar en  la votación
+    // a futuro validar que el consorcista esté habilitado para votar en la votación
     let dataVotacion = {};
 
     const votacion = this.repository.getVotingById(idVotacion);
 
     dataVotacion.votacion = votacion;
-    // votacion.idOwner --> traemos el consorcio --> check que el consorcista pertenece al consorcio
-    /*MANEJAR CUANDO NO ENCUENTRE EL CONSORCISTA EN EL CONSORCIO DUEÑO DE LA VOTACION*/
-    //const consorcio = this.repository.getConsorcioById(idOwner)
-    //check
-
 
     const { vt, vts } = this.repository.getConsorcistaById(votacion.getOwnerId(), idConsorcista);
-
-
 
     // if (vts.length === 0 || vts.votosEmitidos.length === 0) {
     //   dataVotacion.vt = vt;
@@ -68,7 +53,6 @@ export default class VotacionService {
     //   dataVotacion.vt = 
     //     Number(vt) - vts.votosEmitidos.map(votos => Number(votos.vt)).reduce((pv, cv) => pv + cv, 0);
     // }
-
 
     return dataVotacion;
   }
@@ -89,8 +73,6 @@ export default class VotacionService {
       // descontar asset al consorcio
     } else console.log('no pudiste votar');
 
-
-
     // 3° guardar
 
     this.repository.updateConsorcio(consorcio);
@@ -107,7 +89,8 @@ export default class VotacionService {
     const votacion = this.repository.getVotingById(idVotacion);
 
     const { consorcistas } = this.repository.getConsorcioById(idConsorcio);
-
+    
+    // Mover este fetch a stellarService
     try {
 
       for (const consorcista of consorcistas) {
@@ -151,14 +134,3 @@ export default class VotacionService {
   }
 
 }
-
-
-// "vts": [
-//   {votacion: id, votosEmitidos: 
-//       [ 
-//       {option: vot1Op1, vt: amunt}, 
-//       {option: vot1Op2, vt: 20},
-//       {option: vot1Op3, vt: 10}
-//       ]
-//   },
-// ]

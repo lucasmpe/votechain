@@ -1,8 +1,7 @@
 import Consorcio from "../entities/Consorcio.js";
 import Consorcista from "../entities/Consorcista.js";
-import StellarService from '../services/StellarService.js'
-import Repository from '../repository/Repository.js'
-
+import StellarService from '../services/StellarService.js';
+import Repository from '../repository/Repository.js';
 export default class ConsorcioService {
 
   constructor() {
@@ -10,7 +9,6 @@ export default class ConsorcioService {
     this.repository = new Repository();
   }
 
-  // diferencias amount que le pasamos a la cuenta stellar!
   async create(name, consorcistas) {
 
     try {
@@ -34,15 +32,6 @@ export default class ConsorcioService {
       console.log(error);
     }
 
-
-
   }
 
-
-
-
-
-
-
 }
-

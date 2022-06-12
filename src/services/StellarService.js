@@ -39,8 +39,6 @@ export default class StellarService {
 
     };
 
-
-
     async issueAnAsset(entityAccount, amount, assetCode) {
         const entityAccountKp = Keypair.fromSecret(entityAccount.secret);
 
@@ -122,10 +120,5 @@ export default class StellarService {
         }
 
     };
-
-
-
-
-
 
 }
