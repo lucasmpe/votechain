@@ -90,7 +90,7 @@ export default class Repository {
     getVotingById(id) {
         try {
             const votaciones = JSON.parse(fs.readFileSync(process.cwd() + '/repository/votaciones.json'));
-
+            console.log(votaciones)
             const {
                 ownerId,
                 details,

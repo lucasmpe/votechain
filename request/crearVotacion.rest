@@ -1,0 +1,16 @@
+POST http://localhost:8080/consorcio/consorcioUno/votacion
+Content-Type: application/json
+
+{
+    "id": "1",
+    "ownerId": "consorcioUno",
+    "details": "Soy un detalle",
+    "subject": "Soy la votación",
+    "options": [
+        {"option": "VOTOOP1", "info": "Soy la opción 1"},
+        {"option": "VOTOOP2", "info": "Soy la opción 2"},
+        {"option": "VOTOOP3", "info": "Soy la opción 3"}
+        ],
+    "minVoters": 4,
+    "ending": "15/6/2022, 00:00:00"
+}
