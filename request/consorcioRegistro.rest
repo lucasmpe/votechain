@@ -1,0 +1,13 @@
+POST http://localhost:8080/consorcio
+Content-Type: application/json
+
+{
+  "name": "consorcioUno",
+  "consorcistas": [
+    {"depto": "1A", "vt": "100"},
+    {"depto": "1B", "vt": "100"}, 
+    {"depto": "2A", "vt": "100"}, 
+    {"depto": "2B", "vt": "100"}   
+  ]
+}
+
