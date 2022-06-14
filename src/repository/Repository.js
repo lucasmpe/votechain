@@ -5,113 +5,103 @@ import Votacion from '../entities/Votacion.js';
 
 export default class Repository {
 
+  getAllConsorcios() {};
 
-    getConsorcios() {
+  getConsorcioById(id) {
+    const consorcios = JSON.parse(fs.readFileSync(process.cwd() + '/repository/consorcios.json'));
+    const {
+      name,
+      account,
+      consorcistas,
+      assets,
+      votaciones
+    } = consorcios.find(consorcio => consorcio.id === id);
 
+    let auxConsorcistas = [];
+
+    for (const consorcista of consorcistas) {
+      const {
+        id: idConsorcista,
+        depto,
+        vt,
+        account,
+        vts
+      } = consorcista;
+      auxConsorcistas.push(new Consorcista(idConsorcista, depto, vt, account, vts));
     }
 
-    getConsorcioById(id) {
-        const consorcios = JSON.parse(fs.readFileSync(process.cwd() + '/repository/consorcios.json'));
-        const {
-            name,
-            account,
-            consorcistas,
-            assets,
-            votaciones
-        } = consorcios.find(consorcio => consorcio.id === id);
+    return new Consorcio(id, name, account, auxConsorcistas, assets, votaciones);
+  };
 
-        let auxConsorcistas = [];
-        
-        for (const consorcista of consorcistas) {
-            const {
-                id: idConsorcista,
-                depto,
-                vt,
-                account,
-                vts
-            } = consorcista;
-            auxConsorcistas.push(new Consorcista(idConsorcista, depto, vt, account, vts)); 
-        }
+  saveConsorcio(consorcio) {
+    try {
+      const consorcios = JSON.parse(fs.readFileSync(process.cwd() + '/repository/consorcios.json'));
+      consorcios.push(consorcio);
 
-        return new Consorcio(id, name, account, auxConsorcistas, assets, votaciones);
-
+      fs.writeFileSync(process.cwd() + '/repository/consorcios.json', JSON.stringify(consorcios));
+      console.log('The consorcio was saved to file!');
+    } catch (error) {
+      console.log(error)
     }
+  };
 
-    saveConsorcio(consorcio) {
-        try {
+  updateConsorcio(consorcio) {
+    try {
+      const consorcios = JSON.parse(fs.readFileSync(process.cwd() + '/repository/consorcios.json'));
+      const indexConsorcio = consorcios.findIndex(elem => elem.id === consorcio.getId());
+      consorcios.splice(indexConsorcio, 1, consorcio);
 
-            //const consorcios = JSON.parse(fs.readFileSync(consorcioFile));
-            const consorcios = JSON.parse(fs.readFileSync(process.cwd() + '/repository/consorcios.json'));
-
-            consorcios.push(consorcio);
-            
-            fs.writeFileSync(process.cwd() + '/repository/consorcios.json', JSON.stringify(consorcios));
-            console.log('The consorcio was saved to file!');
-
-        } catch (error) {
-            console.log(error)
-        }
+      fs.writeFileSync(process.cwd() + '/repository/consorcios.json', JSON.stringify(consorcios));
+      console.log('The consorcio was updated to file!');
+    } catch (error) {
+      console.log(error)
     }
+  };
 
+  saveVoting(votacion) {
+    try {
+      const votings = JSON.parse(fs.readFileSync(process.cwd() + '/repository/votaciones.json'));
 
-    updateConsorcio(consorcio) {
+      votings.push(votacion);
 
-        try {
-
-            //const consorcios = JSON.parse(fs.readFileSync(consorcioFile));
-            const consorcios = JSON.parse(fs.readFileSync(process.cwd() + '/repository/consorcios.json'));
-
-            const indexConsorcio = consorcios.findIndex(elem => elem.id === consorcio.getId());
-            
-            consorcios.splice(indexConsorcio, 1, consorcio);
-            
-            fs.writeFileSync(process.cwd() + '/repository/consorcios.json', JSON.stringify(consorcios));
-            console.log('The consorcio was updated to file!');
-
-        } catch (error) {
-            console.log(error)
-        }
+      fs.writeFileSync(process.cwd() + '/repository/votaciones.json', JSON.stringify(votings));
+      console.log('The voting was appended to file!');
+    } catch (error) {
+      console.log(error)
     }
+  };
 
-    saveVoting(votacion) {
-        try {
-            const votings = JSON.parse(fs.readFileSync(process.cwd() + '/repository/votaciones.json'));
+  getVotingById(id) {
+    try {
+      const votaciones = JSON.parse(fs.readFileSync(process.cwd() + '/repository/votaciones.json'));
 
-            votings.push(votacion);
+      const {
+        ownerId,
+        details,
+        subject,
+        options,
+        minVoters,
+        ending
+      } = votaciones.find(votacion => votacion.id === id);
 
-            fs.writeFileSync(process.cwd() + '/repository/votaciones.json', JSON.stringify(votings));
-            console.log('The voting was appended to file!');
-
-        } catch (error) {
-            console.log(error)
-        }
+      return new Votacion(id, ownerId, details, subject, options, minVoters, ending);
+    } catch (error) {
+      console.log(error)
     }
+  };
 
-    getVotingById(id) {
-        try {
-            const votaciones = JSON.parse(fs.readFileSync(process.cwd() + '/repository/votaciones.json'));
-            console.log(votaciones)
-            const {
-                ownerId,
-                details,
-                subject,
-                options,
-                minVoters,
-                ending
+  getConsorcistaById(idConsorcio, idConsorcista) {
+    const { consorcistas } = this.getConsorcioById(idConsorcio);
 
-            } = votaciones.find(votacion => votacion.id === id);
+    const {
+      id,
+      depto,
+      vt,
+      account,
+      vts
+    } = consorcistas.find(consorcista => consorcista.id === idConsorcista);
 
-            return new Votacion(id, ownerId, details, subject, options, minVoters, ending);
-
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    getConsorcistaById(idConsorcio, idConsorcista) {
-        const {consorcistas} = this.getConsorcioById(idConsorcio);
-
-        return consorcistas.find(consorcista => consorcista.id === idConsorcista);
-    }
+    return new Consorcista(id, depto, vt, account, vts);
+  };
 
 }

@@ -1,30 +1,33 @@
 export default class Votacion {
 
-    constructor(id, ownerId, details, subject, options, minVoters, ending) {
-        this.id = id;
-        this.ownerId = ownerId;
-        this.details = details;
-        this.subject = subject;
-        this.options = options;
-        this.minVoters = minVoters;
-        this.created = new Date().toLocaleString;
-        this.ending = ending;
-    }
+  constructor(id, ownerId, details, subject, options, minVoters, ending) {
+    this.id = id;
+    this.ownerId = ownerId;
+    this.details = details;
+    this.subject = subject;
+    this.options = options;
+    this.minVoters = minVoters;
+    this.ending = ending;
+  };
 
-    getOptions() {
-        return this.options.map(option => option.option);
-    }
+  getId() {
+    return this.id;
+  };
 
-    getOwnerId() {
-        return this.ownerId;
-    }
+  getOptions() {
+    return this.options.map(option => option.option);
+  };
 
-    isActive() {
-        //es mayor a ending
-    }
+  getOwnerId() {
+    return this.ownerId;
+  };
 
-    showResults(IdVotacion) {
-        
-    }
+  isActive() {
+    //es mayor a ending
+  };
+
+  showResults(IdVotacion) {
+
+  };
 
 }

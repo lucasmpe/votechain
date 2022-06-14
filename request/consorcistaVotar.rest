@@ -1,7 +1,7 @@
-POST http://localhost:8080/consorcista/consorcioUno1A/votacion/1
+POST http://localhost:8080/consorcista/consorcioUno2A/votacion/1
 Content-Type: application/json
 
 {
-    "option": "VOTOOP1",
+    "option": "VOTDOP3",
     "amountVt": "50"
 }

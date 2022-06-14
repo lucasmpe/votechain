@@ -10,7 +10,6 @@ export default class ConsorcioService {
   }
 
   async create(name, consorcistas) {
-
     try {
       const newConsorcio = new Consorcio(name, name);
       const consorcioSAccount = await this.stellarService.createKeypair(newConsorcio.id);
@@ -18,7 +17,6 @@ export default class ConsorcioService {
       await this.stellarService.createAccount(newConsorcio.account, '100');
 
       for (const consorcista of consorcistas) {
-        
         const newConsorcista = new Consorcista(name + consorcista.depto, consorcista.depto, consorcista.vt);
         const consorcistaSAccount = await this.stellarService.createKeypair(newConsorcista.id);
         newConsorcista.setStellarAccount(consorcistaSAccount);
@@ -31,7 +29,6 @@ export default class ConsorcioService {
     } catch (error) {
       console.log(error);
     }
-
   }
 
 }

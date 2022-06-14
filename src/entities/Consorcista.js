@@ -13,21 +13,23 @@ export default class Consorcista {
     this.vt = vt;
     this.account = account;
     this.vts = vts;
-  }
+  };
 
   setStellarAccount(account) {
     this.account = account;
-  }
+  };
 
   addVts(vtForVoting) {
-    this.vts.push(vtForVoting); // vts = [{votacion: 1, votosEmitidos: []}]
-  }
+    this.vts.push(vtForVoting); // vts = [ {votacion: 1, votosEmitidos: [ {option: VOTOP1, vt: 10}, ...] }, ...]
+  };
+
+  getVt() {
+    return this.vt;
+  };
 
   votar(idVotacion, option, amount) {
 
-    if (amount > this.vt - this.getVotosEmitidos(idVotacion)) {
-      return false;
-    }
+    if (amount > this.vt - this.getVotosEmitidos(idVotacion)) return false;
 
     const votacion = this.vts.find(votacion => votacion.votacion === idVotacion);
     const indexVotacion = this.vts.findIndex(votaciones => votaciones.votacion === idVotacion);
@@ -36,32 +38,18 @@ export default class Consorcista {
       votacion.votosEmitidos.push({option, vt: amount});
       this.vts.splice(indexVotacion, 1, votacion);
       return true;
-    } // falta el control de poder votar más de una vez la misma opción
+    } // falta el control de no poder votar más de una vez la misma opción
     
     return false
-  }
-
+  };
 
   getVotosEmitidos(idVotacion) {
     const votacion = this.vts.find(votacion => votacion.votacion === idVotacion);
-    return votacion.votosEmitidos.map(votosEmitidos => votosEmitidos.vt).reduce((pv, cv) => pv + cv, 0);
-  }
+    return votacion.votosEmitidos.map(votosEmitidos => Number(votosEmitidos.vt)).reduce((pv, cv) => pv + cv, 0);
+  };
 
-  // "vts": [
-//  
-//       [
-  //     {option: vot1Op1, vt: amunt}, 
-//       {option: vot1Op2, vt: 20},
-//       {option: vot1Op3, vt: 10}
-//       ]
-//   ,
-//    {votacion: id, votosEmitidos: 
-//       [ 
-//       {option: vot1Op1, vt: amunt}, 
-//       {option: vot1Op2, vt: 20},
-//       {option: vot1Op3, vt: 10}
-//       ]
-//   },
-// ]
+  getSaldo(idVotacion) {
+    return this.getVt() - this.getVotosEmitidos(idVotacion)
+  };
 
 }
