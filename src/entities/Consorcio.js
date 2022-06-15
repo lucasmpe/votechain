@@ -5,7 +5,7 @@ export default class Consorcio {
  * @param {StellarAccount} account
  * @param {Array<Consorcista>} consorcistas
  * @param {Array<Asset>} assets
- * @param {Array<Votacio>} votaciones
+ * @param {Array<Votacion>} votaciones
  */
 
   constructor(id, name, account = null, consorcistas = [], assets = [], votaciones = []) {
