@@ -31,7 +31,7 @@ export default class Consorcista {
 
     if (amount > this.vt - this.getVotosEmitidos(idVotacion)) return false;
 
-    const votacion = this.vts.find(votacion => votacion.votacion === idVotacion);
+    const votacion = this.vts.find(votacion => votacion.votacion === Number(idVotacion));
     const indexVotacion = this.vts.findIndex(votaciones => votaciones.votacion === idVotacion);
     
     if (votacion.votosEmitidos.find(voto => voto.option === option) === undefined) {
@@ -53,5 +53,9 @@ export default class Consorcista {
   getSaldo(idVotacion) {
     return this.getVt() - this.getVotosEmitidos(idVotacion)
   };
+
+  getDepto() {
+    return this.depto;
+  }
 
 }

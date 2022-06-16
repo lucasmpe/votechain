@@ -18,6 +18,18 @@ export default class Votacion {
     return this.options.map(option => option.option);
   };
 
+  getOptionsWithDetails() {
+    return this.options;
+  };
+
+  getSubject() {
+    return this.subject;
+  };
+
+  getDetails() {
+    return this.details;
+  }
+
   getOwnerId() {
     return this.ownerId;
   };
