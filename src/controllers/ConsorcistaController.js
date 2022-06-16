@@ -5,11 +5,16 @@ export default class ConsorcistaController {
     this.votacionService = new VotacionService();
   };
 
+  view(req, res) {
+    res.render('consorcista');
+  };
+
   viewVoting(req, res) {
     try {
       const { idVotacion, id: idConsorcista } = req.params;
-      const dataVotacion = this.votacionService.viewVoting(idVotacion, idConsorcista);
-      res.send(`Estás viendo la votación con id ${dataVotacion.votacion.getId()}`);
+      const { options, active, saldo } = this.votacionService.viewVoting(idVotacion, idConsorcista);
+
+      res.render('votacion', { idVotacion, idConsorcista, options, active, saldo });
     } catch (error) {
       console.log(error);
     }
@@ -18,11 +23,15 @@ export default class ConsorcistaController {
   async vote(req, res) {
     try {
       const { idVotacion, id: idConsorcista } = req.params;
-      const { option, amountVt } = req.body;
+      // const { option, amountVt } = req.body;
+
+      // req.body.
+
+      console.log(req.body)
 
       const saldo = await this.votacionService.vote(idVotacion, idConsorcista, option, amountVt);
 
-      res.send(`Tu voto fue registrado correctamente. Te quedan de saldo: ${saldo} valores de voto`);
+      res.send(`Tu voto fue registrado correctamente. Te quedan de saldo:  valores de voto`);
     } catch (error) {
       console.log(error);
     }

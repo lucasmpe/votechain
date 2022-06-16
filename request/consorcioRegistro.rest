@@ -1,13 +1,30 @@
-POST http://localhost:8080/consorcio
+POST http://localhost:8080/consorcio/create
 Content-Type: application/json
 
+
 {
-  "name": "consorcioUno",
-  "consorcistas": [
-    {"depto": "1A", "vt": "100"},
-    {"depto": "1B", "vt": "100"}, 
-    {"depto": "2A", "vt": "100"}, 
-    {"depto": "2B", "vt": "100"}   
-  ]
+  "name": "Consorcio2",
+  "address": "456",
+  "email": "d@a.com",
+  "name1": "1A",
+  "votos1": "100",
+  "name2": "1B",
+  "votos2": "120",
+  "name3": "1C",
+  "votos3": "140"
 }
+
+
+
+
+
+# {
+#   "name": "consorcioUno",
+#   "consorcistas": [
+#     {"depto": "1A", "vt": "100"},
+#     {"depto": "1B", "vt": "100"}, 
+#     {"depto": "2A", "vt": "100"}, 
+#     {"depto": "2B", "vt": "100"}   
+#   ]
+# }
 

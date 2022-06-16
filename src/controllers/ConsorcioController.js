@@ -26,59 +26,65 @@ export default class ConsorcioController {
     res.render('consorcioForm', { count }) 
   };
 
-
-
-
-/*
-  {
-    name: 'Consorcio2',
-    address: 'Coronel Gonzalez',
-    email: 'd@a.com',
-    name1: '1A',
-    votos1: '100',
-    name2: '1B',
-    votos2: '120',
-    name3: '1C',
-    votos3: '140',
-    name4: '1D',
-    votos4: '140'
-  }
-
-*/
-
   async create(req, res) {
     try {
       const { name } = req.body;
 
-      // let result = {}
-      // undefined
-      // nombres.forEach((nombre, i) => result[nombre] = votos[i]);
-      // undefined
-      // result 
-      // {1a: '100', 1b: '200'}
+      const deptos = Object.entries(req.body)
+        .filter(key => /^name\d/.test(key))
+        .map(([name, depto]) => depto);
 
-      // await this.consorcioService.create(name, consorcistas);
-      console.log(req.body)
-      res.send('Registro exitoso!');
+      const vts = Object.entries(req.body)
+        .filter(key => /^votos\d/.test(key))
+        .map(([votos, vt]) => vt)
+      
+      let consorcistas = [];
+      deptos.forEach((depto, i) => consorcistas.push({"depto": depto, "vt": vts[i]}));
+
+      const id = await this.consorcioService.create(name, consorcistas);
+
+      res.redirect(`/consorcio/${id}/votacion`);
     } catch (error) {
       console.log(error);
     }
   };
 
+  viewFormVoting(req, res) {
+    const { id } = req.params;
+    res.render('consorcioFormVotacion', { id, add: true, form: false });
+  };
+
+  addOptions(req, res) {
+    const { id } = req.params;
+    const { options } = req.body;
+    
+    let countOptions = [];
+    for (let i = 0; i < Number(options); i++) {
+      countOptions[i] = i + 1;
+    }
+
+    res.render('consorcioFormVotacion', { id, add: false, form: true, countOptions });
+  };
+
   async createVoting(req, res) {
     try {
-      const {
-        id,
-        ownerId,
-        details,
-        subject,
-        options,
-        minVoters,
-        ending,
-      } = req.body;
+      const { id } = req.params;
+      const { subject, details } = req.body;
 
-      await this.votacionService.create(id, ownerId, details, subject, options, minVoters, ending);
-      res.send('Creacion exitosa!');
+      const titles = Object.entries(req.body)
+        .filter(key => /^titleOption\d/.test(key))
+        .map(([name, option]) => option);
+
+      const infos = Object.entries(req.body)
+        .filter(key => /^detailOption\d/.test(key))
+        .map(([detail, info]) => info);
+      
+      let options = [];
+      titles.forEach((option, i) => options.push({"option": option, "info": infos[i]}));
+
+      const idVotacion = await this.votacionService.create(id, details, subject, options); //falta ending
+      
+      res.redirect(`/consorcio/${id}/votacion/${idVotacion}`);
     } catch (error) {
       console.log(error);
     }
@@ -87,8 +93,13 @@ export default class ConsorcioController {
   async viewVotingResults(req, res) {
     try {
       const { idVotacion, id: idConsorcio } = req.params;
-      const results = await this.votacionService.viewVotingResults(idVotacion, idConsorcio);
-      res.send(`Resultados de la votación (id: ${idVotacion}): ${JSON.stringify(results)}`);
+      const results = await this.votacionService.viewResults(idVotacion, idConsorcio);
+
+      const totalVotes = results.map(({option, votes}) => votes).reduce((pv, cv) => pv + cv, 0);
+
+      const percentResults = results.map(({option, votes}) => Object({"option": option, "percent": (votes/totalVotes) * 100}));
+
+      res.render('results', { idVotacion, idConsorcio, percentResults });
     } catch (error) {
       console.log(error);
     }

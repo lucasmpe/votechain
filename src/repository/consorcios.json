@@ -1,1 +1,56 @@
-[]
+[
+    {
+        "id": 993,
+        "name": "Consorcio2",
+        "account": {
+            "id": 993,
+            "publicKey": "GCW2NCVFJEUC7VOCDEOGDMDF6OW23JT66M5T2AIXX6P2CUW7MJ77DGTS",
+            "secret": "SCF7VZRH6QOMPY7FGUWFQK4Y6IRZX6RG63S4G2LM7YEI4IUTKY5NAPHR"
+        },
+        "consorcistas": [
+            {
+                "id": "9931A",
+                "depto": "1A",
+                "vt": "100",
+                "account": {
+                    "id": "9931A",
+                    "publicKey": "GBIWND3G2WLGQXQZTRIOUTIJT2PWMG2ENV5I27QHI2GC6NGQ7E2AZYM6",
+                    "secret": "SCMRZPNXT5LEKSPBOWW3NHPMD4CJWGMDVP2TJAMOAMOS453YCXXX73KH"
+                },
+                "vts": [
+                    {
+                        "votacion": 1173,
+                        "votosEmitidos": []
+                    }
+                ]
+            },
+            {
+                "id": "9931B",
+                "depto": "1B",
+                "vt": "120",
+                "account": {
+                    "id": "9931B",
+                    "publicKey": "GBV66KHEMM6KJKOEWFAHGFPIYA5B74SGRA4KAJHQW3RETCH76OQNLV2E",
+                    "secret": "SBFUKS37FZUIHS6FIFO4APQPGLUX7NLG6T6AVQWG7VYTYQ6AGZTYMQ3D"
+                },
+                "vts": [
+                    {
+                        "votacion": 1173,
+                        "votosEmitidos": []
+                    }
+                ]
+            }
+        ],
+        "assets": [
+            {
+                "assetCode": "993pepe0",
+                "amount": 220
+            },
+            {
+                "assetCode": "993juan1",
+                "amount": 220
+            }
+        ],
+        "votaciones": []
+    }
+]

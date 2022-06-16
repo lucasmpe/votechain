@@ -1,0 +1,51 @@
+
+<div class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0">
+    <div id="pricing" class="container flex flex-col items-center h-full max-w-6xl mx-auto">
+        <h2 class="my-5 text-base font-medium tracking-tight text-indigo-500 uppercase">
+           id: {{idVotacion}}
+        </h2>
+        <h3
+            class="w-full max-w-2xl px-5 px-8 mt-2 text-2xl font-black leading-tight text-center text-gray-900 sm:mt-0 sm:px-0 sm:text-6xl md:px-0">
+            Resultados de la votación
+        </h3>
+
+        <div class="max-w-full mx-auto md:max-w-6xl sm:px-8">
+
+            <div class="">
+                <div class="">
+                    <div class="overflow-hidden text-black bg-white border-t border-gray-100 rounded-lg shadow-sm">
+                        <div class="block max-w-sm px-8 mx-auto mt-5 text-sm text-left text-black sm:text-md lg:px-6">
+                            <h3 class="p-3 text-lg font-bold tracking-wide text-center uppercase">
+                                Consorcio<span class="ml-2 font-light">993</span>
+                            </h3>
+                            <h4
+                                class="flex items-center justify-center pb-6 text-4xl font-bold text-center text-gray-900">
+                                <span class="mr-1 -ml-2 text-lg text-gray-700"></span>PROVEEDOR
+                            </h4>
+                            <p class="text-sm text-gray-600 text-center">
+                                Elección del proveedor del servicio de limpieza para el
+                                edificio de la calle Siempre Viva 742:
+                            </p>
+                        </div>
+
+
+                        <h3 class="pb-3 text-lg font-ligth tracking-wide text-center uppercase mt-2">
+                            Resultados finales 
+                        </h3>
+
+
+                        {{#each percentResults}}
+                        <div class="flex items-center block p-8 uppercase">
+                            <div class="block w-full px-6 py-4 mt-0 text-lg font-semibold text-center text-white bg-green-600 rounded shadow-sm">
+                                <h3 class="p-3 text-lg font-light tracking-wide text-center uppercase">{{this.option}}:<span class="ml-2 font-bold">{{this.percent}}%</span> </h3>
+                            </div>
+                        </div>
+                        {{/each}}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

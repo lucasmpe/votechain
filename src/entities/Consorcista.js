@@ -44,8 +44,10 @@ export default class Consorcista {
   };
 
   getVotosEmitidos(idVotacion) {
-    const votacion = this.vts.find(votacion => votacion.votacion === idVotacion);
-    return votacion.votosEmitidos.map(votosEmitidos => Number(votosEmitidos.vt)).reduce((pv, cv) => pv + cv, 0);
+    const votacion = this.vts.find(votacion => votacion.votacion === Number(idVotacion));
+    return votacion.votosEmitidos.length === 0
+      ? 0 
+      : votacion.votosEmitidos.map(votosEmitidos => Number(votosEmitidos.vt)).reduce((pv, cv) => pv + cv, 0);
   };
 
   getSaldo(idVotacion) {

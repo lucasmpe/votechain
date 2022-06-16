@@ -1,6 +1,6 @@
 export default class Votacion {
 
-  constructor(id, ownerId, details, subject, options, minVoters, ending) {
+  constructor(id, ownerId, details, subject, options, minVoters = 2, ending = "") {
     this.id = id;
     this.ownerId = ownerId;
     this.details = details;
@@ -23,6 +23,7 @@ export default class Votacion {
   };
 
   isActive() {
+    return true;
     //es mayor a ending
   };
 

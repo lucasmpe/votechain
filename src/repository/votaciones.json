@@ -1,1 +1,20 @@
-[]
+[
+    {
+        "id": 1173,
+        "ownerId": "993",
+        "details": "hola",
+        "subject": "votacionUno",
+        "options": [
+            {
+                "option": "993pepe0",
+                "info": "ww"
+            },
+            {
+                "option": "993juan1",
+                "info": "rrr"
+            }
+        ],
+        "minVoters": 2,
+        "ending": ""
+    }
+]

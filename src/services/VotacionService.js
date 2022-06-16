@@ -8,9 +8,16 @@ export default class VotacionService {
     this.repository = new Repository();
   }
 
-  async create(id, ownerId, details, subject, options, minVoters, ending) {
+  generateAsset(index, option, ownerId) {
+    return `${ownerId}${option}${index}`.toLowerCase();
+  }
+
+  async create(ownerId, details, subject, options) {
+    const id = subject.split('').map((c, i) => subject.charCodeAt(i)).reduce((pv, cv) => pv + cv, 0);
+    const assets = options.map(({option, info}, index) => Object({"option": this.generateAsset(index, option, ownerId), "info": info}));
+
     const consorcio = this.repository.getConsorcioById(ownerId);
-    const newVotacion = new Votacion(id, ownerId, details, subject, options, minVoters, ending);
+    const newVotacion = new Votacion(id, ownerId, details, subject, assets); //  ending
 
     try {
       const totalVt = consorcio.getTotalVts();
@@ -28,13 +35,21 @@ export default class VotacionService {
 
     this.repository.updateConsorcio(consorcio);
     this.repository.saveVoting(newVotacion);
+
+    return newVotacion.getId();
+
   }
 
   viewVoting(idVotacion, idConsorcista) {
     const votacion = this.repository.getVotingById(idVotacion);
     const consorcista = this.repository.getConsorcistaById(votacion.getOwnerId(), idConsorcista);
+
     const saldo = consorcista.getVt() - consorcista.getVotosEmitidos(idVotacion);
-    return { votacion, saldo };
+
+    const options = votacion.getOptions();
+    const active = votacion.isActive();
+    
+    return { options, active, saldo };
   }
 
   async vote(idVotacion, idConsorcista, option, amountVt) {
@@ -56,7 +71,7 @@ export default class VotacionService {
     }
   }
 
-  async viewVotingResults(idVotacion, idConsorcio) {
+  async viewResults(idVotacion, idConsorcio) {
     let countVotes = [];
     const votacion = this.repository.getVotingById(idVotacion);
     const { consorcistas } = this.repository.getConsorcioById(idConsorcio);
