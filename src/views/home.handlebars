@@ -1,285 +1,552 @@
-{{>header}}
+<header class="relative z-50 w-full h-24">
+  <div
+    class="container flex items-center justify-center h-full max-w-6xl px-8 mx-auto sm:justify-between xl:px-0"
+  >
+    <a
+      href="/"
+      class="relative flex items-center inline-block h-5 h-full font-black leading-none"
+    >
 
-<div class="relative items-center justify-center w-full lg:pt-40 lg:pb-40 xl:pt-40 xl:pb-64">
+      <span class="ml-3 text-xl text-gray-800">VOTECHAIN APP<span
+          class="text-pink-500"
+        >.</span></span>
+    </a>
+
+    <nav
+      id="nav"
+      class="absolute top-0 left-0 z-50 flex flex-col items-center justify-between hidden w-full h-64 pt-5 mt-24 text-sm text-gray-800 bg-white border-t border-gray-200 md:w-auto md:flex-row md:h-24 lg:text-base md:bg-transparent md:mt-0 md:border-none md:py-0 md:flex md:relative"
+    >
+      {{! <a
+            href="#"
+            class="ml-0 mr-0 font-bold duration-100 md:ml-12 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600"
+            >Home</a
+          > }}
+      <a
+        href="#features"
+        class="mr-0 font-bold duration-100 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600"
+      >Business logic</a>
+      <a
+        href="#pricing"
+        class="mr-0 font-bold duration-100 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600"
+      >Usage examples</a>
+
+    </nav>
+
     <div
-        class="container flex flex-col items-center justify-center xl:justify-between h-full max-w-6xl px-8 mx-auto -mt-32 lg:flex-row xl:px-0 mx-auto">
+      class="absolute left-0 flex-col items-center justify-center hidden w-full pb-8 mt-48 border-b border-gray-200 md:relative md:w-auto md:bg-transparent md:border-none md:mt-0 md:flex-row md:p-0 md:items-end md:flex md:justify-between"
+    >
+
+      <svg
+        class="absolute d-none top-0 left-0 hidden w-screen max-w-3xl -mt-64 -ml-12 xl:block"
+        viewBox="0 0 818 815"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <defs>
+          <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="c">
+            <stop stop-color="#E614F2" offset="0%"></stop>
+            <stop stop-color="#FC3832" offset="100%"></stop>
+          </linearGradient>
+          <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="f">
+            <stop stop-color="#657DE9" offset="0%"></stop>
+            <stop stop-color="#1C0FD7" offset="100%"></stop>
+          </linearGradient>
+          <filter
+            x="-4.7%"
+            y="-3.3%"
+            width="109.3%"
+            height="109.3%"
+            filterUnits="objectBoundingBox"
+            id="a"
+          >
+            <feOffset
+              dy="8"
+              in="SourceAlpha"
+              result="shadowOffsetOuter1"
+            ></feOffset>
+            <feGaussianBlur
+              stdDeviation="8"
+              in="shadowOffsetOuter1"
+              result="shadowBlurOuter1"
+            ></feGaussianBlur>
+            <feColorMatrix
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"
+              in="shadowBlurOuter1"
+            ></feColorMatrix>
+          </filter>
+          <filter
+            x="-4.7%"
+            y="-3.3%"
+            width="109.3%"
+            height="109.3%"
+            filterUnits="objectBoundingBox"
+            id="d"
+          >
+            <feOffset
+              dy="8"
+              in="SourceAlpha"
+              result="shadowOffsetOuter1"
+            ></feOffset>
+            <feGaussianBlur
+              stdDeviation="8"
+              in="shadowOffsetOuter1"
+              result="shadowBlurOuter1"
+            ></feGaussianBlur>
+            <feColorMatrix
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"
+              in="shadowBlurOuter1"
+            ></feColorMatrix>
+          </filter>
+          <path
+            d="M160.52 108.243h497.445c17.83 0 24.296 1.856 30.814 5.342 6.519 3.486 11.635 8.602 15.12 15.12 3.487 6.52 5.344 12.985 5.344 30.815v497.445c0 17.83-1.857 24.296-5.343 30.814-3.486 6.519-8.602 11.635-15.12 15.12-6.52 3.487-12.985 5.344-30.815 5.344H160.52c-17.83 0-24.296-1.857-30.814-5.343-6.519-3.486-11.635-8.602-15.12-15.12-3.487-6.52-5.343-12.985-5.343-30.815V159.52c0-17.83 1.856-24.296 5.342-30.814 3.486-6.519 8.602-11.635 15.12-15.12 6.52-3.487 12.985-5.343 30.815-5.343z"
+            id="b"
+          ></path>
+          <path
+            d="M159.107 107.829H656.55c17.83 0 24.296 1.856 30.815 5.342 6.518 3.487 11.634 8.602 15.12 15.12 3.486 6.52 5.343 12.985 5.343 30.816V656.55c0 17.83-1.857 24.296-5.343 30.815-3.486 6.518-8.602 11.634-15.12 15.12-6.519 3.486-12.985 5.343-30.815 5.343H159.107c-17.83 0-24.297-1.857-30.815-5.343-6.519-3.486-11.634-8.602-15.12-15.12-3.487-6.519-5.343-12.985-5.343-30.815V159.107c0-17.83 1.856-24.297 5.342-30.815 3.487-6.519 8.602-11.634 15.12-15.12 6.52-3.487 12.985-5.343 30.816-5.343z"
+            id="e"
+          ></path>
+        </defs>
+        <g fill="none" fill-rule="evenodd" opacity=".9">
+          <g transform="rotate(65 416.452 409.167)">
+            <use fill="#000" filter="url(#a)" xlink:href="#b"></use>
+            <use fill="url(#c)" xlink:href="#b"></use>
+          </g>
+          <g transform="rotate(29 421.929 414.496)">
+            <use fill="#000" filter="url(#d)" xlink:href="#e"></use>
+            <use fill="url(#f)" xlink:href="#e"></use>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <div
+      id="nav-mobile-btn"
+      class="absolute top-0 right-0 z-50 block w-6 mt-8 mr-10 cursor-pointer select-none md:hidden sm:mt-10"
+    >
+      <span
+        class="block w-full h-1 mt-2 duration-200 transform bg-gray-800 rounded-full sm:mt-1"
+      ></span>
+      <span
+        class="block w-full h-1 mt-1 duration-200 transform bg-gray-800 rounded-full"
+      ></span>
+    </div>
+  </div>
+</header>
+
+<div
+  class="relative items-center justify-center w-full lg:pt-40 lg:pb-40 xl:pt-40 xl:pb-64"
+>
+  <div
+    class="container flex flex-col items-center justify-center xl:justify-between h-full max-w-6xl px-8 mx-auto -mt-32 lg:flex-row xl:px-0 mx-auto"
+  >
+    <div
+      class="z-30 flex flex-col items-center w-full max-w-xl pt-48 text-center lg:items-start lg:w-1/2 lg:pt-20 xl:pt-40 xl:text-left"
+    >
+      <h1
+        class="relative mb-1 text-3xl font-black leading-tight text-gray-900 sm:text-6xl xl:mb-1"
+      >
+        VOTECHAIN APP<span class="text-pink-500">.</span>
+      </h1>
+      <h2 class="mb-8 text-xl text-gray-600">
+        Online voting system
+      </h2>
+      <p
+        class="pr-0 mb-8 text-base text-gray-600 sm:text-lg xl:text-md lg:pr-20"
+      >
+        It allows the consortiums to resolve in an agile manner the decision
+        making process in relation to proposals that may be subject to a vote.
+        The system seeks to
+        <strong>encourage the participation</strong>
+        of members and to achieve
+        <strong>greater transparency</strong>
+        about the actions that take place in the consortium.
+      </p>
+      <div class="flex flex-row flex-wrap justify-between gap-6">
+        <a
+          href="/consorcio"
+          class="relative self-start inline-block w-auto px-8 py-4 mx-auto mt-0 text-base font-bold text-white bg-indigo-600 border-t border-gray-200 rounded-md shadow-xl sm:mt-1 fold-bold lg:mx-0"
+        >I'M A CONSORTIUM</a>
+        <a
+          href="/consorcista"
+          class="relative self-start inline-block w-auto px-8 py-4 mx-auto mt-0 text-base font-bold text-white bg-indigo-400 border-t border-gray-200 rounded-md shadow-xl sm:mt-1 fold-bold lg:mx-0"
+        >I'M A CONSORTIUM MEMBER</a>
+      </div>
+
+      <svg
+        class="absolute left-0 max-w-md mt-24 -ml-64 left-svg"
+        viewBox="0 0 423 423"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <defs>
+          <linearGradient
+            x1="100%"
+            y1="0%"
+            x2="4.48%"
+            y2="0%"
+            id="linearGradient-1"
+          >
+            <stop stop-color="#5C54DB" offset="0%"></stop>
+            <stop stop-color="#6A82E7" offset="100%"></stop>
+          </linearGradient>
+          <filter
+            x="-9.3%"
+            y="-6.7%"
+            width="118.7%"
+            height="118.7%"
+            filterUnits="objectBoundingBox"
+            id="filter-3"
+          >
+            <feOffset
+              dy="8"
+              in="SourceAlpha"
+              result="shadowOffsetOuter1"
+            ></feOffset>
+            <feGaussianBlur
+              stdDeviation="8"
+              in="shadowOffsetOuter1"
+              result="shadowBlurOuter1"
+            ></feGaussianBlur>
+            <feColorMatrix
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"
+              in="shadowBlurOuter1"
+            ></feColorMatrix>
+          </filter>
+          <rect
+            id="path-2"
+            x="63"
+            y="504"
+            width="300"
+            height="300"
+            rx="40"
+          ></rect>
+        </defs>
+        <g
+          id="Page-1"
+          stroke="none"
+          stroke-width="1"
+          fill="none"
+          fill-rule="evenodd"
+          opacity=".9"
+        >
+          <g id="Desktop-HD" transform="translate(-39 -531)">
+            <g id="Hero" transform="translate(43 83)">
+              <g id="Rectangle-6" transform="rotate(45 213 654)">
+                <use
+                  fill="#000"
+                  filter="url(#filter-3)"
+                  xlink:href="#path-2"
+                ></use>
+                <use fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+  </div>
+</div>
+
+<div
+  id="features"
+  class="relative w-full px-8 pt-10 border-t border-gray-200 md:pt-16 lg:pt-24 xl:pt-40 xl:px-0"
+>
+  <div
+    class="container flex flex-col items-center justify-between h-full max-w-6xl mx-auto"
+  >
+    <h2
+      class="my-5 text-base font-medium tracking-tight text-indigo-500 uppercase"
+    >
+      Business
+    </h2>
+    <h3
+      class="max-w-2xl px-5 mt-2 text-3xl font-black leading-tight text-center text-gray-900 sm:mt-0 sm:px-0 sm:text-6xl"
+    >
+      Business logic
+    </h3>
+    <div class="flex flex-col w-full mt-0 lg:flex-row sm:mt-10 lg:mt-20">
+      <div class="w-full max-w-md p-4 mx-auto mb-0 sm:mb-16 lg:mb-0 lg:w-1/3">
         <div
-            class="z-30 flex flex-col items-center w-full max-w-xl pt-48 text-center lg:items-start lg:w-1/2 lg:pt-20 xl:pt-40 xl:text-left">
-            <h1 class="relative mb-4 text-3xl font-black leading-tight text-gray-900 sm:text-6xl xl:mb-8">
-                VOTECHAIN APP<span class="text-pink-500">.</span>
-            </h1>
-            <p class="pr-0 mb-2 text-base text-gray-600 sm:text-lg xl:text-md lg:pr-20">
-                Sistema de votaciones online, dirigido a las administraciones de
-                consorcios de edificio.
+          class="relative flex flex-col items-center justify-center w-full h-full p-20 mr-5 rounded-lg bg-gray-100"
+        >
+
+          <img src="../imgs/icons8-1-en-círculo-96.png" alt="" />
+          <h4 class="relative mt-6 text-lg text-center font-bold">
+            Consortium register
+          </h4>
+          <p class="relative mt-2 text-base text-center text-gray-600">
+            The consortium registers and generates an account that will contain
+            its own information and that of its members. To start operating, an
+            initial payment will be required depending on the size of the
+            consortium.
+          </p>
+        </div>
+      </div>
+
+      <div class="w-full max-w-md p-4 mx-auto mb-0 sm:mb-16 lg:mb-0 lg:w-1/3">
+        <div
+          class="relative flex flex-col items-center justify-center w-full h-full p-20 mr-5 rounded-lg bg-gray-100"
+        >
+
+          <img src="../imgs/icons8-2-en-círculo-96.png" alt="" />
+          <h4 class="relative mt-6 text-lg font-bold">Generate voting</h4>
+          <p class="relative mt-2 text-base text-center text-gray-600">
+            A vote is generated with the details of the proposal, accompanied by
+            different voting options. Each vote may require, depending on the
+            proposal, a minimum of participating members to be considered valid.
+            Each vote will have a start date and an end date.
+          </p>
+        </div>
+      </div>
+
+      <div class="w-full max-w-md p-4 mx-auto mb-16 lg:mb-0 lg:w-1/3">
+        <div
+          class="relative flex flex-col items-center justify-center w-full h-full p-20 mr-5 rounded-lg bg-gray-100"
+        >
+
+          <img src="../imgs/icons8-3-en-círculo-96.png" alt="" />
+          <h4 class="relative mt-6 text-lg font-bold text-center">
+            Voting
+          </h4>
+          <p class="relative mt-2 text-base text-center text-gray-600">
+            Each member may direct its stack of votes in the manner it deems
+            necessary, so it is not mandatory to vote for only one option, but
+            may divide his vote strategically in the proposed offers, if he/she
+            so wishes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="w-full p-4 mx-auto mb-16 lg:mb-0 max-w-6xl mx-auto pb-10 md:pb-16 lg:pb-24 xl:pb-40"
+>
+  <div
+    class="relative flex flex-col items-center justify-center w-full h-full p-20 mr-5 rounded-lg bg-gray-100"
+  >
+
+    <img src="../imgs/icons8-4-en-círculo-96-yellow.png" alt="" />
+    <h4 class="relative mt-6 text-lg font-bold text-center">
+      Voting completed
+    </h4>
+    <p class="relative mt-2 text-base text-center text-gray-600">
+      At the end of the voting period, the results are issued if the vote is
+      considered valid, being registered in perpetuity in the Stellar network
+      ledger.
+    </p>
+  </div>
+</div>
+
+<div
+  class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0"
+>
+  <div
+    id="pricing"
+    class="container flex flex-col items-center h-full max-w-6xl mx-auto"
+  >
+    <h2
+      class="my-5 text-base font-medium tracking-tight text-indigo-500 uppercase"
+    >
+      Usage examples
+    </h2>
+    <h3
+      class="w-full max-w-2xl px-5 px-8 mt-2 pb-10 text-2xl font-black leading-tight text-center text-gray-900 sm:mt-0 sm:px-0 sm:text-6xl md:px-0"
+    >
+      Some examples of the use of votechain APP.
+    </h3>
+
+    <div class="max-w-full mx-auto md:max-w-6xl sm:px-8">
+
+      <div
+        class="relative flex flex-col items-center block sm:flex-col lg:flex-row gap-6"
+      >
+        <div
+          class="relative z-0 w-11/12 max-w-sm my-8 border border-gray-200 rounded-lg lg:w-1/3 sm:my-5"
+        >
+          <div
+            class="overflow-hidden text-black bg-white border-t border-gray-100 rounded-lg shadow-sm"
+          >
+            <div
+              class="block max-w-sm px-8 mx-auto mt-5 text-sm text-left text-black sm:text-md lg:px-6"
+            >
+              <h3
+                class="p-3 text-lg font-bold tracking-wide text-center uppercase"
+              >
+                Origin<span class="ml-2 font-light">Consortium John Titor</span>
+              </h3>
+              <h4
+                class="flex items-center justify-center pb-6 text-4xl font-bold text-center text-gray-900"
+              >
+                <span class="mr-1 -ml-2 text-lg text-gray-700"></span>SUPPLIER
+              </h4>
+              <p class="text-sm text-gray-600 text-center">
+                Choice of cleaning service provider for the building at 742
+                Siempre Viva St:
+              </p>
+            </div>
+
+            <h3
+              class="pt-3 text-lg font-bold tracking-wide text-center uppercase mt-2 text-red-400"
+            >
+              Atention
+            </h3>
+            <h3
+              class="pb-3 text-lg font-ligth tracking-wide text-center uppercase mt-2"
+            >
+              There are multiple options for this vote
+            </h3>
+            <div class="flex items-center block p-8 uppercase">
+              <a
+                href="#_"
+                class="block w-full px-6 py-4 mt-0 text-lg font-semibold text-center text-white bg-gray-900 rounded shadow-sm hover:bg-green-600"
+              >GO TO VOTE</a>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="relative z-10 w-full max-w-md my-8 bg-white rounded-lg shadow-lg lg:w-1/3 sm:my-5"
+        >
+          <div
+            class="py-4 text-sm font-semibold leading-none tracking-wide text-center text-white uppercase bg-indigo-500 rounded-t"
+          >
+            Define a certain increase
+          </div>
+          <div
+            class="block max-w-sm px-8 mx-auto mt-5 text-sm text-left text-black sm:text-md lg:px-6"
+          >
+            <h3
+              class="p-3 pb-1 text-lg font-bold tracking-wide text-center uppercase"
+            >
+              Origin<span class="ml-2 font-light">Management</span>
+            </h3>
+            <h4
+              class="flex items-center justify-center pb-6 text-5xl font-bold text-center text-gray-900"
+            >
+              <span class="mr-1 -ml-2 text-lg text-gray-700">$</span>50.000
+            </h4>
+            <p class="text-sm text-gray-600 text-center">
+              Expenditures for the maintenance of the park at the building at
+              742 Siempre Viva Street:
             </p>
-            <p class="pr-0 mb-8 text-base text-gray-600 sm:text-lg xl:text-md lg:pr-20">
-                Permite resolver de forma ágil la toma de decisiones en relación a
-                propuestas que pueden ser sujetas a votación.
-                El sistema busca fomentar la participación de los vecinos y lograr mayor transparencia
-                sobre las acciones que llevan a cabo los consorcios.
-            </p>
-            <div class="flex flex-row flex-wrap justify-between gap-6">
-                <a href="/consorcio"
-                    class="relative self-start inline-block w-auto px-8 py-4 mx-auto mt-0 text-base font-bold text-white bg-indigo-600 border-t border-gray-200 rounded-md shadow-xl sm:mt-1 fold-bold lg:mx-0">SOY
-                    CONSORCIO</a>
-                <a href="/consorcista"
-                    class="relative self-start inline-block w-auto px-8 py-4 mx-auto mt-0 text-base font-bold text-white bg-indigo-400 border-t border-gray-200 rounded-md shadow-xl sm:mt-1 fold-bold lg:mx-0">SOY
-                    CONSORCISTA</a>
-            </div>
+          </div>
+          <div class="flex justify-start pl-12 mt-8 sm:justify-start">
+            <ul>
+              <li class="flex items-center">
+                <div class="p-2 text-green-500 rounded-full fill-current">
+                  <svg
+                    class="w-6 h-6 align-middle"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                </div>
+                <span class="ml-3 text-lg text-gray-700">Fee payment</span>
+              </li>
+              <li class="flex items-center">
+                <div class="p-2 text-green-500 rounded-full fill-current">
+                  <svg
+                    class="w-6 h-6 align-middle"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                </div>
+                <span class="ml-3 text-lg text-gray-700">Materials purchase</span>
+              </li>
+              <li class="flex items-center">
+                <div class="p-2 text-green-500 rounded-full fill-current">
+                  <svg
+                    class="w-6 h-6 align-middle"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                </div>
+                <span class="ml-3 text-lg text-gray-700">Overhead expenses</span>
+              </li>
+            </ul>
+          </div>
 
-
-            <svg class="absolute left-0 max-w-md mt-24 -ml-64 left-svg" viewBox="0 0 423 423"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <defs>
-                    <linearGradient x1="100%" y1="0%" x2="4.48%" y2="0%" id="linearGradient-1">
-                        <stop stop-color="#5C54DB" offset="0%" />
-                        <stop stop-color="#6A82E7" offset="100%" />
-                    </linearGradient>
-                    <filter x="-9.3%" y="-6.7%" width="118.7%" height="118.7%" filterUnits="objectBoundingBox"
-                        id="filter-3">
-                        <feOffset dy="8" in="SourceAlpha" result="shadowOffsetOuter1" />
-                        <feGaussianBlur stdDeviation="8" in="shadowOffsetOuter1" result="shadowBlurOuter1" />
-                        <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" in="shadowBlurOuter1" />
-                    </filter>
-                    <rect id="path-2" x="63" y="504" width="300" height="300" rx="40" />
-                </defs>
-                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity=".9">
-                    <g id="Desktop-HD" transform="translate(-39 -531)">
-                        <g id="Hero" transform="translate(43 83)">
-                            <g id="Rectangle-6" transform="rotate(45 213 654)">
-                                <use fill="#000" filter="url(#filter-3)" xlink:href="#path-2" />
-                                <use fill="url(#linearGradient-1)" xlink:href="#path-2" />
-                            </g>
-                        </g>
-                    </g>
-                </g>
-            </svg>
+          <div
+            class="flex flex-row flex-wrap gap-4 items-center block p-8 uppercase"
+          >
+            <a
+              href="#_"
+              class="block w-full px-6 py-4 mt-3 text-lg font-semibold text-center text-white bg-green-400 rounded shadow-sm hover:bg-green-300"
+            >In favor</a>
+            <a
+              href="#_"
+              class="block w-full px-6 py-4 mt-3 text-lg font-semibold text-center text-white bg-red-600 rounded shadow-sm hover:bg-red-500"
+            >Against</a>
+          </div>
         </div>
 
-    </div>
-</div>
-
-<div id="features" class="relative w-full px-8 pt-10 border-t border-gray-200 md:pt-16 lg:pt-24 xl:pt-40 xl:px-0">
-    <div class="container flex flex-col items-center justify-between h-full max-w-6xl mx-auto">
-        <h2 class="my-5 text-base font-medium tracking-tight text-indigo-500 uppercase">
-            Negocio
-        </h2>
-        <h3
-            class="max-w-2xl px-5 mt-2 text-3xl font-black leading-tight text-center text-gray-900 sm:mt-0 sm:px-0 sm:text-6xl">
-            Lógica del negocio
-        </h3>
-        <div class="flex flex-col w-full mt-0 lg:flex-row sm:mt-10 lg:mt-20">
-            <div class="w-full max-w-md p-4 mx-auto mb-0 sm:mb-16 lg:mb-0 lg:w-1/3">
-                <div
-                    class="relative flex flex-col items-center justify-center w-full h-full p-20 mr-5 rounded-lg bg-gray-100">
-
-                    <img src="../imgs/icons8-1-en-círculo-96.png" alt="" />
-                    <h4 class="relative mt-6 text-lg font-bold">
-                        Registro del consorcio
-                    </h4>
-                    <p class="relative mt-2 text-base text-center text-gray-600">
-                        El consorcio se registra y genera una cuenta que contendrá la
-                        información del consorcio y la de sus integrantes. Para empezar
-                        a operar, se requerirá de un pago inicial dependiendo el tamaño
-                        del consorcio.
-                    </p>
-                </div>
+        <div
+          class="relative z-0 w-11/12 max-w-sm my-8 border border-gray-200 rounded-lg lg:w-1/3 sm:my-5"
+        >
+          <div
+            class="overflow-hidden text-black bg-white border-t border-gray-100 rounded-lg shadow-sm"
+          >
+            <div
+              class="block max-w-sm px-8 mx-auto mt-5 text-sm text-left text-black sm:text-md lg:px-6"
+            >
+              <h3
+                class="p-3 text-lg font-bold tracking-wide text-center uppercase"
+              >
+                Origin<span class="ml-2 font-light">Wayne Foundation</span>
+              </h3>
+              <h4
+                class="flex items-center justify-center pb-6 text-4xl font-bold text-center text-gray-900"
+              >
+                <span class="mr-1 -ml-2 text-lg text-gray-700"></span>DELEGATE
+              </h4>
+              <p class="text-sm text-gray-600 text-center">
+                Delegate election
+              </p>
             </div>
 
-            <div class="w-full max-w-md p-4 mx-auto mb-0 sm:mb-16 lg:mb-0 lg:w-1/3">
-                <div
-                    class="relative flex flex-col items-center justify-center w-full h-full p-20 mr-5 rounded-lg bg-gray-100">
-
-                    <img src="../imgs/icons8-2-en-círculo-96.png" alt="" />
-                    <h4 class="relative mt-6 text-lg font-bold">Generar votación</h4>
-                    <p class="relative mt-2 text-base text-center text-gray-600">
-                        Se genera una votación con los detalles de la propuesta,
-                        acompañada de diferentes opciones de votos. Cada votación podrá
-                        requerir, dependiendo la propuesta, un mínimo de consorcistas
-                        participantes para que sea considerada válida. Cada votación
-                        tendrá una fecha de inicio y una fecha de finalización.
-                    </p>
-                </div>
+            <h3
+              class="pt-3 text-lg font-bold tracking-wide text-center uppercase mt-2 text-red-400"
+            >
+              Atention
+            </h3>
+            <h3
+              class="pb-3 text-lg font-ligth tracking-wide text-center uppercase mt-2"
+            >
+              There are multiple options for this vote
+            </h3>
+            <div class="flex items-center block p-8 uppercase">
+              <a
+                href="#_"
+                class="block w-full px-6 py-4 mt-0 text-lg font-semibold text-center text-white bg-gray-900 rounded shadow-sm hover:bg-green-600"
+              >GO TO VOTE</a>
             </div>
-
-            <div class="w-full max-w-md p-4 mx-auto mb-16 lg:mb-0 lg:w-1/3">
-                <div
-                    class="relative flex flex-col items-center justify-center w-full h-full p-20 mr-5 rounded-lg bg-gray-100">
-
-                    <img src="../imgs/icons8-3-en-círculo-96.png" alt="" />
-                    <h4 class="relative mt-6 text-lg font-bold text-center">
-                        Votación
-                    </h4>
-                    <p class="relative mt-2 text-base text-center text-gray-600">
-                        Cada integrante del consorcio podrá dirigir su stack de votos de
-                        la manera que considere necesaria, por lo cual no es
-                        obligatorio, votar por una opción única, sino que podrá dividir
-                        su voto de manera estrategica en las ofertas propuestas, si así
-                        lo desea.
-                    </p>
-                </div>
-            </div>
+          </div>
         </div>
+
+      </div>
     </div>
-</div>
-
-<div class="w-full p-4 mx-auto mb-16 lg:mb-0 max-w-6xl mx-auto pb-10 md:pb-16 lg:pb-24 xl:pb-40">
-    <div class="relative flex flex-col items-center justify-center w-full h-full p-20 mr-5 rounded-lg bg-gray-100">
-
-        <img src="../imgs/icons8-4-en-círculo-96-yellow.png" alt="" />
-        <h4 class="relative mt-6 text-lg font-bold text-center">
-            Finalizada la votación
-        </h4>
-        <p class="relative mt-2 text-base text-center text-gray-600">
-            Alcanzado el tiempo de finalización de la votación, se emiten los
-            resultados si la votación es considerada válida, quedando registrada
-            de manera perpetua en el libro mayor de la red.
-        </p>
-    </div>
-</div>
-
-<div class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0">
-    <div id="pricing" class="container flex flex-col items-center h-full max-w-6xl mx-auto">
-        <h2 class="my-5 text-base font-medium tracking-tight text-indigo-500 uppercase">
-            Ejemplos de uso
-        </h2>
-        <h3
-            class="w-full max-w-2xl px-5 px-8 mt-2 text-2xl font-black leading-tight text-center text-gray-900 sm:mt-0 sm:px-0 sm:text-6xl md:px-0">
-            Algunos ejemplos de uso de Consorcio App.
-        </h3>
-
-        <div class="max-w-full mx-auto md:max-w-6xl sm:px-8">
-
-            <div class="relative flex flex-col items-center block sm:flex-col lg:flex-row gap-6">
-                <div class="relative z-0 w-11/12 max-w-sm my-8 border border-gray-200 rounded-lg lg:w-1/3 sm:my-5">
-                    <div class="overflow-hidden text-black bg-white border-t border-gray-100 rounded-lg shadow-sm">
-                        <div class="block max-w-sm px-8 mx-auto mt-5 text-sm text-left text-black sm:text-md lg:px-6">
-                            <h3 class="p-3 text-lg font-bold tracking-wide text-center uppercase">
-                                Origen<span class="ml-2 font-light">Consorcio John Titor</span>
-                            </h3>
-                            <h4
-                                class="flex items-center justify-center pb-6 text-4xl font-bold text-center text-gray-900">
-                                <span class="mr-1 -ml-2 text-lg text-gray-700"></span>PROVEEDOR
-                            </h4>
-                            <p class="text-sm text-gray-600 text-center">
-                                Elección del proveedor del servicio de limpieza para el
-                                edificio de la calle Siempre Viva 742:
-                            </p>
-                        </div>
-
-
-                        <h3 class="pt-3 text-lg font-bold tracking-wide text-center uppercase mt-2 text-red-400">
-                            Atención
-                        </h3>
-                        <h3 class="pb-3 text-lg font-ligth tracking-wide text-center uppercase mt-2">
-                            Existen múltiples opciones para esta votación
-                        </h3>
-                        <div class="flex items-center block p-8 uppercase">
-                            <a href="#_"
-                                class="block w-full px-6 py-4 mt-0 text-lg font-semibold text-center text-white bg-gray-900 rounded shadow-sm hover:bg-green-600">IR
-                                A LA VOTACIÓN</a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="relative z-10 w-full max-w-md my-8 bg-white rounded-lg shadow-lg lg:w-1/3 sm:my-5">
-                    <div
-                        class="py-4 text-sm font-semibold leading-none tracking-wide text-center text-white uppercase bg-indigo-500 rounded-t">
-                        Definir un cierto aumento
-                    </div>
-                    <div class="block max-w-sm px-8 mx-auto mt-5 text-sm text-left text-black sm:text-md lg:px-6">
-                        <h3 class="p-3 pb-1 text-lg font-bold tracking-wide text-center uppercase">
-                            Origen<span class="ml-2 font-light">Administración</span>
-                        </h3>
-                        <h4 class="flex items-center justify-center pb-6 text-5xl font-bold text-center text-gray-900">
-                            <span class="mr-1 -ml-2 text-lg text-gray-700">$</span>50.000
-                        </h4>
-                        <p class="text-sm text-gray-600 text-center">
-                            Gastos dirigidos a mantenimiento del parque del edificio de la
-                            calle Siempre Viva 742:
-                        </p>
-                    </div>
-                    <div class="flex justify-start pl-12 mt-8 sm:justify-start">
-                        <ul>
-                            <li class="flex items-center">
-                                <div class="p-2 text-green-500 rounded-full fill-current">
-                                    <svg class="w-6 h-6 align-middle" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                                    </svg>
-                                </div>
-                                <span class="ml-3 text-lg text-gray-700">Pago del jardinero</span>
-                            </li>
-                            <li class="flex items-center">
-                                <div class="p-2 text-green-500 rounded-full fill-current">
-                                    <svg class="w-6 h-6 align-middle" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                                    </svg>
-                                </div>
-                                <span class="ml-3 text-lg text-gray-700">Compra materiales</span>
-                            </li>
-                            <li class="flex items-center">
-                                <div class="p-2 text-green-500 rounded-full fill-current">
-                                    <svg class="w-6 h-6 align-middle" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                                    </svg>
-                                </div>
-                                <span class="ml-3 text-lg text-gray-700">Gastos generales</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="flex flex-row flex-wrap gap-4 items-center block p-8 uppercase">
-                        <a href="#_"
-                            class="block w-full px-6 py-4 mt-3 text-lg font-semibold text-center text-white bg-green-400 rounded shadow-sm hover:bg-green-300">A
-                            favor</a>
-                        <a href="#_"
-                            class="block w-full px-6 py-4 mt-3 text-lg font-semibold text-center text-white bg-red-600 rounded shadow-sm hover:bg-red-500">En
-                            contra</a>
-                    </div>
-                </div>
-
-                <div class="relative z-0 w-11/12 max-w-sm my-8 border border-gray-200 rounded-lg lg:w-1/3 sm:my-5">
-                    <div class="overflow-hidden text-black bg-white border-t border-gray-100 rounded-lg shadow-sm">
-                        <div class="block max-w-sm px-8 mx-auto mt-5 text-sm text-left text-black sm:text-md lg:px-6">
-                            <h3 class="p-3 text-lg font-bold tracking-wide text-center uppercase">
-                                Origen<span class="ml-2 font-light">Consorcio John Titor</span>
-                            </h3>
-                            <h4
-                                class="flex items-center justify-center pb-6 text-4xl font-bold text-center text-gray-900">
-                                <span class="mr-1 -ml-2 text-lg text-gray-700"></span>PROVEEDOR
-                            </h4>
-                            <p class="text-sm text-gray-600 text-center">
-                                Elección del gasista edificio de la calle Siempre Viva 742:
-                            </p>
-                        </div>
-
-
-                        <h3 class="pt-3 text-lg font-bold tracking-wide text-center uppercase mt-2 text-red-400">
-                            Atención
-                        </h3>
-                        <h3 class="pb-3 text-lg font-ligth tracking-wide text-center uppercase mt-2">
-                            Existen múltiples opciones para esta votación
-                        </h3>
-                        <div class="flex items-center block p-8 uppercase">
-                            <a href="#_"
-                                class="block w-full px-6 py-4 mt-0 text-lg font-semibold text-center text-white bg-gray-900 rounded shadow-sm hover:bg-green-600">IR
-                                A LA VOTACIÓN</a>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </div>
+  </div>
 </div>

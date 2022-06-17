@@ -1,1 +1,0 @@
-GET http://localhost:8080/consorcista/consorcioUno1A/votacion/1
