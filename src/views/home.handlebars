@@ -1,30 +1,156 @@
-{{>header}}
+    <header class="relative z-50 w-full h-24">
+      <div
+        class="container flex items-center justify-center h-full max-w-6xl px-8 mx-auto sm:justify-between xl:px-0"
+      >
+        <a
+          href="/"
+          class="relative flex items-center inline-block h-5 h-full font-black leading-none"
+        >
+
+          <span class="ml-3 text-xl text-gray-800"
+            >VOTECHAIN APP<span class="text-pink-500">.</span></span
+          >
+        </a>
+
+        <nav
+          id="nav"
+          class="absolute top-0 left-0 z-50 flex flex-col items-center justify-between hidden w-full h-64 pt-5 mt-24 text-sm text-gray-800 bg-white border-t border-gray-200 md:w-auto md:flex-row md:h-24 lg:text-base md:bg-transparent md:mt-0 md:border-none md:py-0 md:flex md:relative"
+        >
+          {{!-- <a
+            href="#"
+            class="ml-0 mr-0 font-bold duration-100 md:ml-12 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600"
+            >Home</a
+          > --}}
+          <a
+            href="#features"
+            class="mr-0 font-bold duration-100 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600"
+            >Lógica de negocio</a
+          >
+          <a
+            href="#pricing"
+            class="mr-0 font-bold duration-100 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600"
+            >Ejemplos de uso</a
+          >
+         
+        </nav>
+
+        <div
+          class="absolute left-0 flex-col items-center justify-center hidden w-full pb-8 mt-48 border-b border-gray-200 md:relative md:w-auto md:bg-transparent md:border-none md:mt-0 md:flex-row md:p-0 md:items-end md:flex md:justify-between"
+        >
+         
+          <svg
+            class="absolute d-none top-0 left-0 hidden w-screen max-w-3xl -mt-64 -ml-12 xl:block"
+            viewBox="0 0 818 815"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <defs>
+              <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="c">
+                <stop stop-color="#E614F2" offset="0%" />
+                <stop stop-color="#FC3832" offset="100%" />
+              </linearGradient>
+              <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="f">
+                <stop stop-color="#657DE9" offset="0%" />
+                <stop stop-color="#1C0FD7" offset="100%" />
+              </linearGradient>
+              <filter
+                x="-4.7%"
+                y="-3.3%"
+                width="109.3%"
+                height="109.3%"
+                filterUnits="objectBoundingBox"
+                id="a"
+              >
+                <feOffset dy="8" in="SourceAlpha" result="shadowOffsetOuter1" />
+                <feGaussianBlur
+                  stdDeviation="8"
+                  in="shadowOffsetOuter1"
+                  result="shadowBlurOuter1"
+                />
+                <feColorMatrix
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"
+                  in="shadowBlurOuter1"
+                />
+              </filter>
+              <filter
+                x="-4.7%"
+                y="-3.3%"
+                width="109.3%"
+                height="109.3%"
+                filterUnits="objectBoundingBox"
+                id="d"
+              >
+                <feOffset dy="8" in="SourceAlpha" result="shadowOffsetOuter1" />
+                <feGaussianBlur
+                  stdDeviation="8"
+                  in="shadowOffsetOuter1"
+                  result="shadowBlurOuter1"
+                />
+                <feColorMatrix
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"
+                  in="shadowBlurOuter1"
+                />
+              </filter>
+              <path
+                d="M160.52 108.243h497.445c17.83 0 24.296 1.856 30.814 5.342 6.519 3.486 11.635 8.602 15.12 15.12 3.487 6.52 5.344 12.985 5.344 30.815v497.445c0 17.83-1.857 24.296-5.343 30.814-3.486 6.519-8.602 11.635-15.12 15.12-6.52 3.487-12.985 5.344-30.815 5.344H160.52c-17.83 0-24.296-1.857-30.814-5.343-6.519-3.486-11.635-8.602-15.12-15.12-3.487-6.52-5.343-12.985-5.343-30.815V159.52c0-17.83 1.856-24.296 5.342-30.814 3.486-6.519 8.602-11.635 15.12-15.12 6.52-3.487 12.985-5.343 30.815-5.343z"
+                id="b"
+              />
+              <path
+                d="M159.107 107.829H656.55c17.83 0 24.296 1.856 30.815 5.342 6.518 3.487 11.634 8.602 15.12 15.12 3.486 6.52 5.343 12.985 5.343 30.816V656.55c0 17.83-1.857 24.296-5.343 30.815-3.486 6.518-8.602 11.634-15.12 15.12-6.519 3.486-12.985 5.343-30.815 5.343H159.107c-17.83 0-24.297-1.857-30.815-5.343-6.519-3.486-11.634-8.602-15.12-15.12-3.487-6.519-5.343-12.985-5.343-30.815V159.107c0-17.83 1.856-24.297 5.342-30.815 3.487-6.519 8.602-11.634 15.12-15.12 6.52-3.487 12.985-5.343 30.816-5.343z"
+                id="e"
+              />
+            </defs>
+            <g fill="none" fill-rule="evenodd" opacity=".9">
+              <g transform="rotate(65 416.452 409.167)">
+                <use fill="#000" filter="url(#a)" xlink:href="#b" />
+                <use fill="url(#c)" xlink:href="#b" />
+              </g>
+              <g transform="rotate(29 421.929 414.496)">
+                <use fill="#000" filter="url(#d)" xlink:href="#e" />
+                <use fill="url(#f)" xlink:href="#e" />
+              </g>
+            </g>
+          </svg>
+        </div>
+
+        <div
+          id="nav-mobile-btn"
+          class="absolute top-0 right-0 z-50 block w-6 mt-8 mr-10 cursor-pointer select-none md:hidden sm:mt-10"
+        >
+          <span
+            class="block w-full h-1 mt-2 duration-200 transform bg-gray-800 rounded-full sm:mt-1"
+          ></span>
+          <span
+            class="block w-full h-1 mt-1 duration-200 transform bg-gray-800 rounded-full"
+          ></span>
+        </div>
+      </div>
+    </header>
 
 <div class="relative items-center justify-center w-full lg:pt-40 lg:pb-40 xl:pt-40 xl:pb-64">
     <div
         class="container flex flex-col items-center justify-center xl:justify-between h-full max-w-6xl px-8 mx-auto -mt-32 lg:flex-row xl:px-0 mx-auto">
         <div
             class="z-30 flex flex-col items-center w-full max-w-xl pt-48 text-center lg:items-start lg:w-1/2 lg:pt-20 xl:pt-40 xl:text-left">
-            <h1 class="relative mb-4 text-3xl font-black leading-tight text-gray-900 sm:text-6xl xl:mb-8">
+            <h1 class="relative mb-1 text-3xl font-black leading-tight text-gray-900 sm:text-6xl xl:mb-1">
                 VOTECHAIN APP<span class="text-pink-500">.</span>
             </h1>
-            <p class="pr-0 mb-2 text-base text-gray-600 sm:text-lg xl:text-md lg:pr-20">
-                Sistema de votaciones online, dirigido a las administraciones de
-                consorcios de edificio.
-            </p>
+            <h2 class=" mb-8 text-xl text-gray-600">
+                Sistema de votaciones online
+            </h2>
             <p class="pr-0 mb-8 text-base text-gray-600 sm:text-lg xl:text-md lg:pr-20">
-                Permite resolver de forma ágil la toma de decisiones en relación a
-                propuestas que pueden ser sujetas a votación.
-                El sistema busca fomentar la participación de los vecinos y lograr mayor transparencia
-                sobre las acciones que llevan a cabo los consorcios.
+                Permite a las asociaciones resolver de forma ágil la toma de decisiones en relación a
+                propuestas surgidas que pueden ser sujetas a votación.
+                El sistema busca <strong>fomentar la participación</strong> de los asociados y lograr <strong>mayor transparencia</strong>
+                sobre las acciones que tienen lugar en las organizaciones.
             </p>
             <div class="flex flex-row flex-wrap justify-between gap-6">
                 <a href="/consorcio"
                     class="relative self-start inline-block w-auto px-8 py-4 mx-auto mt-0 text-base font-bold text-white bg-indigo-600 border-t border-gray-200 rounded-md shadow-xl sm:mt-1 fold-bold lg:mx-0">SOY
-                    CONSORCIO</a>
+                    ASOCIACIÓN</a>
                 <a href="/consorcista"
                     class="relative self-start inline-block w-auto px-8 py-4 mx-auto mt-0 text-base font-bold text-white bg-indigo-400 border-t border-gray-200 rounded-md shadow-xl sm:mt-1 fold-bold lg:mx-0">SOY
-                    CONSORCISTA</a>
+                    ASOCIADO</a>
             </div>
 
 
@@ -74,14 +200,14 @@
                     class="relative flex flex-col items-center justify-center w-full h-full p-20 mr-5 rounded-lg bg-gray-100">
 
                     <img src="../imgs/icons8-1-en-círculo-96.png" alt="" />
-                    <h4 class="relative mt-6 text-lg font-bold">
-                        Registro del consorcio
+                    <h4 class="relative mt-6 text-lg text-center font-bold">
+                        Registro de la asociación
                     </h4>
                     <p class="relative mt-2 text-base text-center text-gray-600">
-                        El consorcio se registra y genera una cuenta que contendrá la
-                        información del consorcio y la de sus integrantes. Para empezar
+                        La asociación se registra y genera una cuenta que contendrá la
+                        propia información y la de sus integrantes. Para empezar
                         a operar, se requerirá de un pago inicial dependiendo el tamaño
-                        del consorcio.
+                        del la asociación.
                     </p>
                 </div>
             </div>
@@ -95,7 +221,7 @@
                     <p class="relative mt-2 text-base text-center text-gray-600">
                         Se genera una votación con los detalles de la propuesta,
                         acompañada de diferentes opciones de votos. Cada votación podrá
-                        requerir, dependiendo la propuesta, un mínimo de consorcistas
+                        requerir, dependiendo la propuesta, un mínimo de asociados
                         participantes para que sea considerada válida. Cada votación
                         tendrá una fecha de inicio y una fecha de finalización.
                     </p>
@@ -111,9 +237,9 @@
                         Votación
                     </h4>
                     <p class="relative mt-2 text-base text-center text-gray-600">
-                        Cada integrante del consorcio podrá dirigir su stack de votos de
-                        la manera que considere necesaria, por lo cual no es
-                        obligatorio, votar por una opción única, sino que podrá dividir
+                        Cada asociado podrá dirigir su stack de votos de
+                        la manera que considere necesaria, por lo que no es
+                        obligatorio votar por una única opción, sino que podrá dividir
                         su voto de manera estrategica en las ofertas propuestas, si así
                         lo desea.
                     </p>
@@ -133,7 +259,7 @@
         <p class="relative mt-2 text-base text-center text-gray-600">
             Alcanzado el tiempo de finalización de la votación, se emiten los
             resultados si la votación es considerada válida, quedando registrada
-            de manera perpetua en el libro mayor de la red.
+            de manera perpetua en el libro mayor de la red Stellar.
         </p>
     </div>
 </div>
@@ -144,8 +270,8 @@
             Ejemplos de uso
         </h2>
         <h3
-            class="w-full max-w-2xl px-5 px-8 mt-2 text-2xl font-black leading-tight text-center text-gray-900 sm:mt-0 sm:px-0 sm:text-6xl md:px-0">
-            Algunos ejemplos de uso de Consorcio App.
+            class="w-full max-w-2xl px-5 px-8 mt-2 pb-10 text-2xl font-black leading-tight text-center text-gray-900 sm:mt-0 sm:px-0 sm:text-6xl md:px-0">
+            Algunos ejemplos de uso de votechain APP.
         </h3>
 
         <div class="max-w-full mx-auto md:max-w-6xl sm:px-8">
@@ -211,7 +337,7 @@
                                         <polyline points="22 4 12 14.01 9 11.01"></polyline>
                                     </svg>
                                 </div>
-                                <span class="ml-3 text-lg text-gray-700">Pago del jardinero</span>
+                                <span class="ml-3 text-lg text-gray-700">Pago de honorarios</span>
                             </li>
                             <li class="flex items-center">
                                 <div class="p-2 text-green-500 rounded-full fill-current">
@@ -252,14 +378,14 @@
                     <div class="overflow-hidden text-black bg-white border-t border-gray-100 rounded-lg shadow-sm">
                         <div class="block max-w-sm px-8 mx-auto mt-5 text-sm text-left text-black sm:text-md lg:px-6">
                             <h3 class="p-3 text-lg font-bold tracking-wide text-center uppercase">
-                                Origen<span class="ml-2 font-light">Consorcio John Titor</span>
+                                Origen<span class="ml-2 font-light">Fundación Wayne</span>
                             </h3>
                             <h4
                                 class="flex items-center justify-center pb-6 text-4xl font-bold text-center text-gray-900">
-                                <span class="mr-1 -ml-2 text-lg text-gray-700"></span>PROVEEDOR
+                                <span class="mr-1 -ml-2 text-lg text-gray-700"></span>DELEGADO
                             </h4>
                             <p class="text-sm text-gray-600 text-center">
-                                Elección del gasista edificio de la calle Siempre Viva 742:
+                                Elección del delegado
                             </p>
                         </div>
 
