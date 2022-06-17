@@ -1,47 +1,27 @@
 [
-    {
-        "id": 1173,
-        "ownerId": 1063,
-        "details": "Elección del proveedor",
-        "subject": "votacionUno",
-        "options": [
-            {
-                "title": "Proveedor A",
-                "option": "1063pro0",
-                "info": "Es vecino"
-            },
-            {
-                "title": "Provvedor B",
-                "option": "1063pro1",
-                "info": "Es de otro barrio"
-            }
-        ],
-        "minVoters": 2,
-        "ending": ""
-    },
-    {
-        "id": 1630,
-        "ownerId": 587,
-        "details": "Plantines para el jardín frontal",
-        "subject": "Compra de plantas",
-        "options": [
-            {
-                "title": "Potus",
-                "option": "587POT0",
-                "info": "Potus australiano"
-            },
-            {
-                "title": "Gardenias",
-                "option": "587GAR1",
-                "info": "Resistentes a la sequía"
-            },
-            {
-                "title": "Rosas",
-                "option": "587ROS2",
-                "info": "Rosas rojas"
-            }
-        ],
-        "minVoters": 2,
-        "ending": ""
-    }
+  {
+    "id": 2612,
+    "ownerId": 2146,
+    "details": "Choice of gardening service. For the building at 1725 Slough Avenue. The vote will decide, with whom the two-year contract will be signed.",
+    "subject": "Gardening service supplier",
+    "options": [
+      {
+        "title": "Sacamano Bob- self employed",
+        "option": "2146SAC0",
+        "info": "Self-employed worker, will work 3 days a week, 8 hours each day. Will mow the grass and trim the trees on a weekly basis. 8 dollars per hour. Expenses to be paid by the consortium."
+      },
+      {
+        "title": "Las rosas Services",
+        "option": "2146LAS1",
+        "info": "Gardening service with all expenses included. They will work 4 days a week, 8 hours, with rotating personnel. They will be in charge of the maintenance of the entire property, as well as the replacement of any damaged plants. 15 dollars per hour."
+      },
+      {
+        "title": "Chris & Ed Brothers",
+        "option": "2146CHR2",
+        "info": "Family service, two people working. Will mow the grass and trim the trees on a weekly basis. 4 hours, 4 times a week. 5.5 dollars per hour each. Expenses to be paid by the consortium."
+      }
+    ],
+    "minVoters": 2,
+    "ending": ""
+  }
 ]

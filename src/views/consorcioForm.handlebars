@@ -63,11 +63,11 @@
             <div id="features" class="relative w-full px-8 xl:px-0">
                 <div class="container flex flex-col items-center justify-between h-full max-w-6xl mx-auto">
                     <h2 class="my-5 text-base font-medium tracking-tight text-indigo-500 uppercase">
-                        Formulario
+                        Register form
                     </h2>
                     <h3
                         class="max-w-2xl px-5 mt-2 text-3xl font-black leading-tight text-center text-gray-900 sm:mt-0 sm:px-0 sm:text-6xl">
-                        Formulario para registrar una asociación
+                        Consortium registration form
                     </h3>
                     <div class="flex flex-col w-full mt-0 lg:flex-row sm:mt-10 lg:mt-20">
                         <div class="mt-10 sm:mt-0 mx-auto">
@@ -82,29 +82,27 @@
                                                     {{!-- NOMBRE --}}
                                                     <div class="col-span-6 sm:col-span-3">
                                                         <label for="first-name"
-                                                            class="block text-sm font-medium text-gray-700">Nombre
-                                                            de la asociación</label>
+                                                            class="block text-sm font-medium text-gray-700">Consortium name</label>
                                                         <input type="text" name="name" id="first-name"
                                                             autocomplete="given-name"
-                                                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                                            class="mt-1 focus:ring-indigo-500 border focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                                                     </div>
                                                     {{!-- DIRECCION --}}
                                                     <div class="col-span-6 sm:col-span-3">
                                                         <label for="address"
-                                                            class="block text-sm font-medium text-gray-700">Dirección
+                                                            class="block text-sm font-medium text-gray-700">Adress
                                                             </label>
                                                         <input type="text" name="address" id="address"
                                                             autocomplete="family-name"
-                                                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                                            class="mt-1 focus:ring-indigo-500 border focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                                                     </div>
                                                     {{!-- EMAIL --}}
                                                     <div class="col-span-6 sm:col-span-4">
                                                         <label for="email-address"
-                                                            class="block text-sm font-medium text-gray-700">Correo
-                                                            electrónico</label>
+                                                            class="block text-sm font-medium text-gray-700">E-mail</label>
                                                         <input type="email" name="email" id="email-address"
                                                             autocomplete="email"
-                                                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                                            class="mt-1 focus:ring-indigo-500 border focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                                                     </div>
                                                 </div>
 
@@ -119,17 +117,17 @@
                                                     <div class="justify-between items-center flex flex-row mt-2">
                                                         <div class="col-span-6 sm:col-span-4">
                                                             <label for="name"
-                                                                class="block text-sm font-medium text-gray-700">Nombre del asociado</label>
+                                                                class="block text-sm font-medium text-gray-700">Member name</label>
                                                             <input type="text" name="name{{this}}" id="name"
                                                                 autocomplete="email"
-                                                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                                                class="mt-1 focus:ring-indigo-500 border focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                                                         </div>
                                                         <div class="col-span-6 sm:col-span-4">
                                                             <label for="votos"
-                                                                class="block text-sm font-medium text-gray-700">Votos</label>
+                                                                class="block text-sm font-medium text-gray-700">Votes</label>
                                                             <input type="text" name="votos{{this}}" id="votos"
                                                                 autocomplete="email"
-                                                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                                                class="mt-1 focus:ring-indigo-500 border focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                                                         </div>
                                                         <button class="pt-4">
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
@@ -157,7 +155,7 @@
                                     <div class="px-4 py-3 bg-gray-50 text-right sm:px-6 flex flex-row justify-between">
                                         <button id="add"
                                             class="flex flex-row items-center gap-1 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                            <p>Agregar</p>
+                                            <p>Add</p>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
                                                 fill="currentColor">
                                                 <path fill-rule="evenodd"
@@ -167,7 +165,7 @@
                                         </button>
                                         <button form="consorcio-create" type="submit"
                                             class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                            Enviar
+                                            Send
                                         </button>
                                     </div>
                                 </div>

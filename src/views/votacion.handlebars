@@ -64,7 +64,7 @@
         </h2>
         <h4
             class="w-full max-w-2xl px-5 px-8 mt-2 mb-4 text-xl font-black leading-tight text-center text-gray-900 sm:mt-0 sm:px-0 sm:text-4xl md:px-0">
-            Votación de la asociación con id: <span>{{ownerId}}</span>
+            Voting of the consortium with id: <span>{{ownerId}}</span>
         </h4>
 
         <div class="flex flex-row mt-10 justify-center">
@@ -80,10 +80,10 @@
                     </h3>
 
                     <p class="text-sm text-gray-600 mt-4 text-center">
-                        Detalles
+                        Details
                     </p>
                 </div>
-                <div class="flex justify-start pl-12 mt-8 sm:justify-start">
+                {{!-- <div class="flex justify-start pl-12 mt-8 sm:justify-start">
                     <ul>
                         <li class="flex items-center">
                             <div class="p-2 text-green-500 rounded-full fill-current">
@@ -119,7 +119,7 @@
                         </li>
 
                     </ul>
-                </div>
+                </div> --}}
 
             </div>
 
@@ -155,7 +155,7 @@
                                         <input type="number" step="10" min="10" max="{{../this.saldo}}" name="{{this.option}}" id="vote"
                                             class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-20 shadow-sm sm:text-lg border border-gray-300 rounded-md h-12" />
                                         <button type="submit"
-                                            class="block w-auto px-6 py-2 mt-3 text-lg font-semibold text-center text-white bg-green-400 rounded shadow-sm hover:bg-green-300">VOTAR</button>
+                                            class="block w-auto px-6 py-2 mt-3 text-lg font-semibold text-center text-white bg-green-400 rounded shadow-sm hover:bg-green-300">VOTE</button>
                                     </div>
                                 </div>
                             </form>
@@ -165,7 +165,7 @@
 
 
                         <h4 class="pb-3 text-lg font-ligth tracking-wide text-center text-gray-600 uppercase mt-2">
-                            Saldo asociado {{depto}}: <strong>{{this.saldo}}</strong> valores de voto
+                            Consortium member balance {{depto}}: <strong>{{this.saldo}}</strong> votes capability
                         </h4>
 
                     </div>
