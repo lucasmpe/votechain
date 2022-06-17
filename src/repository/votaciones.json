@@ -1,1 +1,47 @@
-[]
+[
+    {
+        "id": 1173,
+        "ownerId": 1063,
+        "details": "Elección del proveedor",
+        "subject": "votacionUno",
+        "options": [
+            {
+                "title": "Proveedor A",
+                "option": "1063pro0",
+                "info": "Es vecino"
+            },
+            {
+                "title": "Provvedor B",
+                "option": "1063pro1",
+                "info": "Es de otro barrio"
+            }
+        ],
+        "minVoters": 2,
+        "ending": ""
+    },
+    {
+        "id": 1630,
+        "ownerId": 587,
+        "details": "Plantines para el jardín frontal",
+        "subject": "Compra de plantas",
+        "options": [
+            {
+                "title": "Potus",
+                "option": "587POT0",
+                "info": "Potus australiano"
+            },
+            {
+                "title": "Gardenias",
+                "option": "587GAR1",
+                "info": "Resistentes a la sequía"
+            },
+            {
+                "title": "Rosas",
+                "option": "587ROS2",
+                "info": "Rosas rojas"
+            }
+        ],
+        "minVoters": 2,
+        "ending": ""
+    }
+]

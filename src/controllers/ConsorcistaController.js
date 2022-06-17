@@ -5,11 +5,18 @@ export default class ConsorcistaController {
     this.votacionService = new VotacionService();
   };
 
+  view(req, res) {
+    res.render('consorcista');
+  };
+
   viewVoting(req, res) {
     try {
       const { idVotacion, id: idConsorcista } = req.params;
-      const dataVotacion = this.votacionService.viewVoting(idVotacion, idConsorcista);
-      res.send(`Estás viendo la votación con id ${dataVotacion.votacion.getId()}`);
+      const { depto, ownerId, details, subject, options, active, saldo } = this.votacionService.viewVoting(idVotacion, idConsorcista);
+
+      console.log(options)
+
+      res.render('votacion', { depto, ownerId, idVotacion, idConsorcista, details, subject, options, active, saldo });
     } catch (error) {
       console.log(error);
     }
@@ -18,11 +25,12 @@ export default class ConsorcistaController {
   async vote(req, res) {
     try {
       const { idVotacion, id: idConsorcista } = req.params;
-      const { option, amountVt } = req.body;
+      const option = Object.entries(req.body)[0][0];
+      const amountVt = Object.entries(req.body)[0][1]; 
+      
+      await this.votacionService.vote(idVotacion, idConsorcista, option, amountVt);
 
-      const saldo = await this.votacionService.vote(idVotacion, idConsorcista, option, amountVt);
-
-      res.send(`Tu voto fue registrado correctamente. Te quedan de saldo: ${saldo} valores de voto`);
+      res.redirect(`/consorcista/${idConsorcista}/votacion/${idVotacion}`);
     } catch (error) {
       console.log(error);
     }

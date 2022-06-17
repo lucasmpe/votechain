@@ -1,1 +1,192 @@
-[]
+[
+    {
+        "id": 1063,
+        "name": "consorcioX",
+        "account": {
+            "id": 1063,
+            "publicKey": "GAOOYFOJHQQBU37IMUERRZXWCVYOGZUXZRIFI57DN6MOOTVEMDWBHSUT",
+            "secret": "SBM4EO6LBIJVFT2WAWFCHJAN4XDOH2WKG73HHO56ZOA37MNTDPANY3RY"
+        },
+        "consorcistas": [
+            {
+                "id": "10631A",
+                "depto": "1A",
+                "vt": "100",
+                "account": {
+                    "id": "10631A",
+                    "publicKey": "GANSJ2ZIP63KOZMPFSVYVGAV4667POKOFRMWAH3MHKWTEUNOTADGF2QK",
+                    "secret": "SBUWYZUEPPXM7DJEUU7CIXSPWEAWJPQPLCCDSJ3CP3NA5G6GF2TBJTBV"
+                },
+                "vts": [
+                    {
+                        "votacion": 1173,
+                        "votosEmitidos": [
+                            {
+                                "option": "1063pro0",
+                                "vt": "10"
+                            },
+                            {
+                                "option": "1063pro1",
+                                "vt": "90"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "10631B",
+                "depto": "1B",
+                "vt": "120",
+                "account": {
+                    "id": "10631B",
+                    "publicKey": "GANHCHSUGLQALRDBYPXRZPRGBJVMGAAOKPJ5TLKJ44VVONNDTIGLC3WR",
+                    "secret": "SAAMU5J3STH7T363YCV42U74YRVDQWLGGJYTJCKJSX6TCFMP2IYTT7BG"
+                },
+                "vts": [
+                    {
+                        "votacion": 1173,
+                        "votosEmitidos": [
+                            {
+                                "option": "1063pro0",
+                                "vt": "100"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "assets": [
+            {
+                "assetCode": "1063pro0",
+                "amount": 220
+            },
+            {
+                "assetCode": "1063pro1",
+                "amount": 220
+            }
+        ],
+        "votaciones": []
+    },
+    {
+        "id": 0,
+        "name": "",
+        "account": {
+            "id": 0,
+            "publicKey": "GDYVGVMQLKF4TZRNCIO6P7L27WD3BUXIPU2XSKC5TGVRURZZ2EJVBLSV",
+            "secret": "SDKVWPTUQJTUCWGGYY3JVXJ5L3EN3B2HJD6SDASZWM3LQF6NQSBBT2I7"
+        },
+        "consorcistas": [
+            {
+                "id": "0",
+                "depto": "",
+                "vt": "",
+                "account": {
+                    "id": "0",
+                    "publicKey": "GCKVEQNZ6SS2T7MLWCI63HXEZ27ISRECUFOVXCUKBHKKOH2B3Q7S7OSK",
+                    "secret": "SD3H2GVUWNHAONO4CHBG75EXFMITDGIZUV75SUWSUQGRAMWDCFUPDG6V"
+                },
+                "vts": []
+            },
+            {
+                "id": "0",
+                "depto": "",
+                "vt": "",
+                "account": {
+                    "id": "0",
+                    "publicKey": "GDZHZ6OCYHDOLRWR44JWSFV6TKFU7B5WN27EMOHV6EIWP4HV4RI235P4",
+                    "secret": "SBAPGCWUW2LE43GPRC7VXGFBYQUVEEGTCA7E3QG43OTNXZO7JRS5KMO4"
+                },
+                "vts": []
+            },
+            {
+                "id": "0",
+                "depto": "",
+                "vt": "",
+                "account": {
+                    "id": "0",
+                    "publicKey": "GB4T7TLUW7LFVEWIRFTFD2M334IMC2OJWECTPYCDN6HHIUZ572RRYNH3",
+                    "secret": "SB3ETME4743AMQ2DCAMPBHP4BCJH4ZE5Z3GHNZVPUGGNDTIERIVGQDXL"
+                },
+                "vts": []
+            }
+        ],
+        "assets": [],
+        "votaciones": []
+    },
+    {
+        "id": 587,
+        "name": "Eiffel",
+        "account": {
+            "id": 587,
+            "publicKey": "GADHFEKV6YZM3BGEQIEVYITW4LFLEGJWL3JD6JI4ZIVTOKUHWTL3P64V",
+            "secret": "SDH5K4P5SGYWPPLFTTZUL4QS65WNC3XMDZO67KMFWLWZEFKVK7HBLNAO"
+        },
+        "consorcistas": [
+            {
+                "id": "5871A",
+                "depto": "1A",
+                "vt": "100",
+                "account": {
+                    "id": "5871A",
+                    "publicKey": "GBSPXBRSZ7TIJSUO2CBYOQULQ2QMZ253ABU23M5YSFKVHNVH5OEWTUNP",
+                    "secret": "SD5D4OCQQNTYS4OGWT57EYOWAOD7R6EJMQRURFKYKTHUZQNP3MCLMGNE"
+                },
+                "vts": [
+                    {
+                        "votacion": 1630,
+                        "votosEmitidos": [
+                            {
+                                "option": "587POT0",
+                                "vt": "60"
+                            },
+                            {
+                                "option": "587GAR1",
+                                "vt": "40"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "5871B",
+                "depto": "1B",
+                "vt": "120",
+                "account": {
+                    "id": "5871B",
+                    "publicKey": "GA5OXAR7QQKXOET7VP4G2ISNSCRBS6WAM4C7V7A6K25WPTLFI2NX4XQY",
+                    "secret": "SCO4ML3E4OGNZD7QG5GHNUHC3OO5EZO6UXYDZQOG6QVKXUGNGIAWXY2N"
+                },
+                "vts": [
+                    {
+                        "votacion": 1630,
+                        "votosEmitidos": [
+                            {
+                                "option": "587ROS2",
+                                "vt": "90"
+                            },
+                            {
+                                "option": "587GAR1",
+                                "vt": "30"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "assets": [
+            {
+                "assetCode": "587POT0",
+                "amount": 220
+            },
+            {
+                "assetCode": "587GAR1",
+                "amount": 220
+            },
+            {
+                "assetCode": "587ROS2",
+                "amount": 220
+            }
+        ],
+        "votaciones": []
+    }
+]

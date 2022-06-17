@@ -8,9 +8,18 @@ export default class VotacionService {
     this.repository = new Repository();
   }
 
-  async create(id, ownerId, details, subject, options, minVoters, ending) {
+  generateAsset(index, option, ownerId) {
+    const aux = option.slice(0,3);
+    return `${ownerId}${aux}${index}`.toUpperCase();
+  }
+
+  async create(ownerId, details, subject, options) {
+    const id = subject.split('').map((c, i) => subject.charCodeAt(i)).reduce((pv, cv) => pv + cv, 0);
+
+    const assets = options.map(({option, info}, index) => Object({"title": option, "option": this.generateAsset(index, option, ownerId), "info": info}));
+
     const consorcio = this.repository.getConsorcioById(ownerId);
-    const newVotacion = new Votacion(id, ownerId, details, subject, options, minVoters, ending);
+    const newVotacion = new Votacion(id, ownerId, details, subject, assets); //  ending
 
     try {
       const totalVt = consorcio.getTotalVts();
@@ -28,13 +37,25 @@ export default class VotacionService {
 
     this.repository.updateConsorcio(consorcio);
     this.repository.saveVoting(newVotacion);
+
+    return newVotacion.getId();
+
   }
 
   viewVoting(idVotacion, idConsorcista) {
     const votacion = this.repository.getVotingById(idVotacion);
     const consorcista = this.repository.getConsorcistaById(votacion.getOwnerId(), idConsorcista);
+
     const saldo = consorcista.getVt() - consorcista.getVotosEmitidos(idVotacion);
-    return { votacion, saldo };
+
+    const options = votacion.getOptionsWithDetails();
+    const active = votacion.isActive();
+    const details = votacion.getDetails();
+    const subject = votacion.getSubject();
+    const ownerId = votacion.getOwnerId();
+    const depto = consorcista.getDepto();
+
+    return { depto, ownerId, details, subject, options, active, saldo };
   }
 
   async vote(idVotacion, idConsorcista, option, amountVt) {
@@ -42,6 +63,8 @@ export default class VotacionService {
     const consorcio = this.repository.getConsorcioById(ownerId);
     const consorcista = consorcio.consorcistas.find(consorcista => consorcista.id === idConsorcista);
 
+
+    console.log(consorcista)
     // 1° set el voto en el array vts --> votosEmitidos del consorcista
     if (consorcista.votar(idVotacion, option, amountVt)) {
       // 2° abrir trusline y pagar al consorcista desde el consorcio
@@ -56,23 +79,30 @@ export default class VotacionService {
     }
   }
 
-  async viewVotingResults(idVotacion, idConsorcio) {
+  async viewResults(idVotacion, idConsorcio) {
     let countVotes = [];
     const votacion = this.repository.getVotingById(idVotacion);
+    console.log('votacion', votacion)
     const { consorcistas } = this.repository.getConsorcioById(idConsorcio);
-
+    console.log('consorcistas', consorcistas)
     const payments = await this.stellarService.getPayments(consorcistas.map(consorcista => consorcista.account));
 
-    for (const option of votacion.getOptions()) {
-      const votes = payments.filter(payment => payment.option === option)
+    for (const option of votacion.getOptionsWithDetails()) {
+      const votes = payments.filter(payment => payment.option === option.option)
         .map(payment => Number(payment.vt))
         .reduce((pv, cv) => pv + cv, 0);
 
-      countVotes.push({ option, votes });
-    }
+      const asset = option.option;
+      const title = option.title;
 
-    console.log("SUCCESS!");
-    return countVotes;
+      countVotes.push({ title, asset, votes });
+    }
+   
+    const subject = votacion.getSubject();
+    const details = votacion.getDetails();
+
+    
+    return { subject, details, countVotes };
   }
 
 }

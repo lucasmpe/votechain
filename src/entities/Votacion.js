@@ -1,6 +1,6 @@
 export default class Votacion {
 
-  constructor(id, ownerId, details, subject, options, minVoters, ending) {
+  constructor(id, ownerId, details, subject, options, minVoters = 2, ending = "") {
     this.id = id;
     this.ownerId = ownerId;
     this.details = details;
@@ -18,11 +18,24 @@ export default class Votacion {
     return this.options.map(option => option.option);
   };
 
+  getOptionsWithDetails() {
+    return this.options;
+  };
+
+  getSubject() {
+    return this.subject;
+  };
+
+  getDetails() {
+    return this.details;
+  }
+
   getOwnerId() {
     return this.ownerId;
   };
 
   isActive() {
+    return true;
     //es mayor a ending
   };
 

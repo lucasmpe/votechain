@@ -15,7 +15,7 @@ export default class Repository {
       consorcistas,
       assets,
       votaciones
-    } = consorcios.find(consorcio => consorcio.id === id);
+    } = consorcios.find(consorcio => consorcio.id === Number(id));
 
     let auxConsorcistas = [];
 
@@ -30,7 +30,7 @@ export default class Repository {
       auxConsorcistas.push(new Consorcista(idConsorcista, depto, vt, account, vts));
     }
 
-    return new Consorcio(id, name, account, auxConsorcistas, assets, votaciones);
+    return new Consorcio(Number(id), name, account, auxConsorcistas, assets, votaciones);
   };
 
   saveConsorcio(consorcio) {
@@ -82,9 +82,9 @@ export default class Repository {
         options,
         minVoters,
         ending
-      } = votaciones.find(votacion => votacion.id === id);
+      } = votaciones.find(votacion => votacion.id === Number(id));
 
-      return new Votacion(id, ownerId, details, subject, options, minVoters, ending);
+      return new Votacion(Number(id), Number(ownerId), details, subject, options, minVoters, ending);
     } catch (error) {
       console.log(error)
     }
