@@ -62,29 +62,51 @@
         <h2 class="my-5 text-base font-medium tracking-tight text-indigo-500 uppercase">
             id: {{idVotacion}}
         </h2>
-        <h3
-            class="w-full max-w-2xl px-5 px-8 mt-2 text-2xl font-black leading-tight text-center text-gray-900 sm:mt-0 sm:px-0 sm:text-6xl md:px-0">
-            Resultados de la votación
-        </h3>
+        <h4
+            class="w-full max-w-2xl px-5 px-8 mt-2 mb-4 text-xl font-black leading-tight text-center text-gray-900 sm:mt-0 sm:px-0 sm:text-4xl md:px-0">
+            Votación consorcio <span>{{ownerId}}</span>
+        </h4>
 
-        <div class="flex flex-row justify-center">
+        <div class="flex flex-row mt-10 justify-center">
 
             <div class="relative pb-10 z-10 w-full max-w-md my-8 bg-white rounded-lg shadow-lg lg:w-1/3 sm:my-5">
                 <div
                     class="py-4 text-sm font-semibold leading-none tracking-wide text-center text-white uppercase bg-indigo-500 rounded-t">
-                    VOTACIÓN {{subject}}
+                    {{subject}}
                 </div>
                 <div class="block max-w-sm px-8 mx-auto mt-5 text-sm text-left text-black sm:text-md lg:px-6">
                     <h3 class="p-3 pb-1 text-lg font-bold tracking-wide text-center uppercase">
-                        Consorcio<span class="ml-2 font-light">id: {{ownerId}}</span>
+                         {{details}}
                     </h3>
 
-                    <p class="text-sm text-gray-600 text-center">
-                        {{details}}
+                    <p class="text-sm text-gray-600 mt-4 text-center">
+                        Detalles
                     </p>
                 </div>
                 <div class="flex justify-start pl-12 mt-8 sm:justify-start">
                     <ul>
+                        <li class="flex items-center">
+                            <div class="p-2 text-green-500 rounded-full fill-current">
+                                <svg class="w-6 h-6 align-middle" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                            </div>
+                            <span class="ml-3 text-lg text-gray-700">...</span>
+                        </li>
+
+                        <li class="flex items-center">
+                            <div class="p-2 text-green-500 rounded-full fill-current">
+                                <svg class="w-6 h-6 align-middle" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                            </div>
+                            <span class="ml-3 text-lg text-gray-700">...</span>
+                        </li>
+
                         <li class="flex items-center">
                             <div class="p-2 text-green-500 rounded-full fill-current">
                                 <svg class="w-6 h-6 align-middle" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -116,11 +138,11 @@
                             <form id="vote" action="/consorcista/{{../idConsorcista}}/votacion/{{../idVotacion}}/vote"
                                 method="POST">
                                 <div
-                                    class="relative z-10 w-full max-w-xl my-8 bg-white rounded-lg shadow-lg lg:w-96 sm:my-5">
+                                    class="relative z-10 border border-gray-300 w-full max-w-xl my-8 bg-white rounded-lg shadow-lg lg:w-96 sm:my-5">
                                     <div
-                                        class="block max-w-sm px-8 mx-auto mt-5 text-sm text-left text-black sm:text-md lg:px-6">
+                                        class="block max-w-sm px-8 mx-auto mt-4 text-sm text-left text-black sm:text-md lg:px-6">
                                         <h4
-                                            class="flex items-center justify-center pb-6 text-5xl font-bold text-center text-gray-900">
+                                            class="flex items-center justify-center pb-2 text-3xl font-bold text-center text-gray-900">
                                             <span class="mr-1 -ml-2 text-lg text-gray-700">*</span>{{this.title}}
                                         </h4>
                                         
@@ -129,11 +151,11 @@
                                         </p>
                                     </div>
 
-                                    <div class="flex flex-row flex-wrap gap-4 items-center block p-8 uppercase">
+                                    <div class="flex flex-row flex-wrap gap-2 pt-2 justify-center items-center block p-8 uppercase">
                                         <input type="number" step="10" min="10" max="{{../this.saldo}}" name="{{this.option}}" id="vote"
-                                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md h-12" />
+                                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-20 shadow-sm sm:text-lg border border-gray-300 rounded-md h-12" />
                                         <button type="submit"
-                                            class="block w-full px-6 py-4 mt-3 text-lg font-semibold text-center text-white bg-green-400 rounded shadow-sm hover:bg-green-300">VOTAR</button>
+                                            class="block w-auto px-6 py-2 mt-3 text-lg font-semibold text-center text-white bg-green-400 rounded shadow-sm hover:bg-green-300">VOTAR</button>
                                     </div>
                                 </div>
                             </form>

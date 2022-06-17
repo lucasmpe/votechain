@@ -49,7 +49,7 @@ El sistema busca fomentar la participación de los vecinos y lograr mayor transp
     - Se procesan los datos y se crea una *Votación*.
     - Se depositan en la cuenta Stellar del Consorcio las cantidades necesarias de los assets creados específicamente para ser utilizados como valores de votos en esta votación. Se crean tantos assets como opciones de voto tenga la votación.
 
-                          $  cantidad de opciones *  vt =total assets emitidos  $
+                            cantidad de opciones * Σ vt = total assets emitidos 
 
 3. Se **inicia la votación**.
     - Los consorcistas **ingresan** a la app para votar.

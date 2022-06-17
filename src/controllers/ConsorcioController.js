@@ -96,9 +96,10 @@ export default class ConsorcioController {
       const { idVotacion, id: idConsorcio } = req.params;
       const { subject, details, countVotes: results } = await this.votacionService.viewResults(idVotacion, idConsorcio);
 
-      const totalVotes = results.map(({title, option, votes}) => votes).reduce((pv, cv) => pv + cv, 0);
+      const totalVotes = results.map(({title, asset, votes}) => votes).reduce((pv, cv) => pv + cv, 0);
 
-      const infoResults = results.map(({title, option, votes}) => Object({"title": title, "option": option, "percent": Math.floor((votes/totalVotes) * 1000) / 10}));
+      const infoResults = results.map(({title, asset, votes}) => 
+        Object({"title": title, "percent": Math.floor((votes/totalVotes) * 1000) / 10, "win": (votes > totalVotes/results.length) ? true : false }));
 
       res.render('results', { idVotacion, idConsorcio, subject, details, infoResults });
     } catch (error) {
