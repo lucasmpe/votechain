@@ -4,9 +4,11 @@ Proyecto sobre la red Stellar para el hackathon de r/argentina-programa.
 ``` npm install ```
 
 ## run
-``` npm run dev ```
+``` npm run start ```
 ## Uso
 Para probar la app con sus funcionalidades básicas puede usar estos [requests](https://www.getpostman.com/collections/26a9902f313e7e486e86).
+
+También puede visualizar una versión demo [aquí](https://votechain-app.herokuapp.com/).
 
 ## Declaración
 
