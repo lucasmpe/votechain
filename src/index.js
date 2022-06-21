@@ -5,6 +5,11 @@ import consorcistaRouter from './routes/consorcistaRouter.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8080;
+};
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -25,5 +30,5 @@ app.get('/', (req, res) => {
   res.render('home');
 });
 
-app.listen(8080);
-console.log(`Escuchando en http://localhost:${8080}`);
+app.listen(port);
+console.log(`Escuchando en http://localhost:${port}`);
