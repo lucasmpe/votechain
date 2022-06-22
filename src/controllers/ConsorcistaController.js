@@ -9,14 +9,16 @@ export default class ConsorcistaController {
     res.render('consorcista');
   };
 
-  viewVoting(req, res) {
+  async viewVoting(req, res) {
     try {
       const { idVotacion, id: idConsorcista } = req.params;
       const { depto, ownerId, details, subject, options, active, saldo } = this.votacionService.viewVoting(idVotacion, idConsorcista);
 
       console.log(options)
+      const consorcistas = await this.votacionService.getDataConsorcistas();
+      console.log(consorcistas)
 
-      res.render('votacion', { depto, ownerId, idVotacion, idConsorcista, details, subject, options, active, saldo });
+      res.render('votacion', { depto, ownerId, idVotacion, idConsorcista, details, subject, options, active, saldo, consorcistas });
     } catch (error) {
       console.log(error);
     }
@@ -37,3 +39,4 @@ export default class ConsorcistaController {
   };
 
 }
+

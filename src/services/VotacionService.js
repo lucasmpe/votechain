@@ -82,9 +82,9 @@ export default class VotacionService {
   async viewResults(idVotacion, idConsorcio) {
     let countVotes = [];
     const votacion = this.repository.getVotingById(idVotacion);
-    console.log('votacion', votacion)
+    // console.log('votacion', votacion)
     const { consorcistas } = this.repository.getConsorcioById(idConsorcio);
-    console.log('consorcistas', consorcistas)
+    // console.log('consorcistas', consorcistas)
     const payments = await this.stellarService.getPayments(consorcistas.map(consorcista => consorcista.account));
 
     for (const option of votacion.getOptionsWithDetails()) {
@@ -104,5 +104,12 @@ export default class VotacionService {
     
     return { subject, details, countVotes };
   }
+
+//prueba
+async getDataConsorcistas(){
+  const ownerId = 1683;
+  const consorcio = this.repository.getConsorcioById(ownerId);
+  return consorcio.consorcistas
+}
 
 }

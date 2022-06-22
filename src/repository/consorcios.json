@@ -1,1 +1,76 @@
-[]
+[
+    {
+        "id": 1683,
+        "name": "Gonzalo Altamirano",
+        "account": {
+            "id": 1683,
+            "publicKey": "GARBYEZQASMYMMTZMWE6YPS46KOO2PKHIZQSK65W3M4SLEEXXUG5RVMP",
+            "secret": "SB7XTW535OPAGTQ2XISHZO4N5JJUNLHFNHKJXUT2ZGF2SAKRP6LTQE3I"
+        },
+        "consorcistas": [
+            {
+                "id": "1683Michael Scarn",
+                "depto": "Michael Scarn",
+                "vt": "100",
+                "account": {
+                    "id": "1683Michael Scarn",
+                    "publicKey": "GADK2Z5QOYGD7SXXTQKB2QZSS2TEIU72F3VOXY4SNBI2XS36TOOA2ERC",
+                    "secret": "SD7J6IW7HJIA4ZULHDUGYI6BF7OJCTOM3IYC2ZDPOLYBW3BQBXPNIGXG"
+                },
+                "vts": [
+                    {
+                        "votacion": 2397,
+                        "votosEmitidos": []
+                    }
+                ]
+            },
+            {
+                "id": "1683Bob Gomez",
+                "depto": "Bob Gomez",
+                "vt": "120",
+                "account": {
+                    "id": "1683Bob Gomez",
+                    "publicKey": "GDNL5QGDIVULBDALA2SYJBLD243Z6IIJUCVFS3WXW47ENUQYNHDWIOHQ",
+                    "secret": "SDVZH3W5VCC3NYBSGIVL7SG2MSZNBOTAMRNERBHHZQ26OOYIFKQBDLGE"
+                },
+                "vts": [
+                    {
+                        "votacion": 2397,
+                        "votosEmitidos": []
+                    }
+                ]
+            },
+            {
+                "id": "1683John Titor",
+                "depto": "John Titor",
+                "vt": "100",
+                "account": {
+                    "id": "1683John Titor",
+                    "publicKey": "GBTTWYFBPMURR4V2ONWOQUGRU7AY4KIRZ2RY3M4RV6A3E2DRZCV6EAMS",
+                    "secret": "SA25SCPU35XGJVA53IAKOZFJH7Q7E736WV56WJYTNX5VD6JRLVNNCFKC"
+                },
+                "vts": [
+                    {
+                        "votacion": 2397,
+                        "votosEmitidos": []
+                    }
+                ]
+            }
+        ],
+        "assets": [
+            {
+                "assetCode": "1683BOB0",
+                "amount": 320
+            },
+            {
+                "assetCode": "1683LAV1",
+                "amount": 320
+            },
+            {
+                "assetCode": "1683CHA2",
+                "amount": 320
+            }
+        ],
+        "votaciones": []
+    }
+]
