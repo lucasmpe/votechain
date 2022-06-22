@@ -29,6 +29,7 @@ export default class ConsorcioController {
   async create(req, res) {
     try {
       const { name } = req.body;
+      console.log(name)
 
       const deptos = Object.entries(req.body)
         .filter(key => /^name\d/.test(key))
