@@ -9,12 +9,12 @@ export default class VotacionService {
   }
 
   generateAsset(index, option, ownerId) {
-    const aux = option.slice(0,3);
+    const aux = option.replace(/\s/g, '').slice(0,3);
     return `${ownerId}${aux}${index}`.toUpperCase();
   }
 
   async create(ownerId, details, subject, options) {
-    const id = subject.split('').map((c, i) => subject.charCodeAt(i)).reduce((pv, cv) => pv + cv, 0);
+    const id = subject.replace(/\s/g, '').split('').map((c, i) => subject.charCodeAt(i)).reduce((pv, cv) => pv + cv, 0);
 
     const assets = options.map(({option, info}, index) => Object({"title": option, "option": this.generateAsset(index, option, ownerId), "info": info}));
 
@@ -84,9 +84,9 @@ export default class VotacionService {
   async viewResults(idVotacion, idConsorcio) {
     let countVotes = [];
     const votacion = this.repository.getVotingById(idVotacion);
-    console.log('votacion', votacion)
+    // console.log('votacion', votacion)
     const { consorcistas } = this.repository.getConsorcioById(idConsorcio);
-    console.log('consorcistas', consorcistas)
+    // console.log('consorcistas', consorcistas)
     const payments = await this.stellarService.getPayments(consorcistas.map(consorcista => consorcista.account));
 
     for (const option of votacion.getOptionsWithDetails()) {
@@ -106,5 +106,12 @@ export default class VotacionService {
     
     return { subject, details, countVotes };
   }
+
+//prueba
+async getDataConsorcistas(){
+  const ownerId = 1683;
+  const consorcio = this.repository.getConsorcioById(ownerId);
+  return consorcio.consorcistas
+}
 
 }

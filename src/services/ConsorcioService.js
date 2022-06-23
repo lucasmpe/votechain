@@ -11,7 +11,8 @@ export default class ConsorcioService {
 
   async create(name, consorcistas) {
     try {
-      const id = name.split('').map((c, i) => name.charCodeAt(i)).reduce((pv, cv) => pv + cv, 0);
+      const id = name.replace(/\s/g, '').split('').map((c, i) => name.charCodeAt(i)).reduce((pv, cv) => pv + cv, 0);
+      console.log(id)
       const newConsorcio = new Consorcio(id, name);
       const consorcioSAccount = await this.stellarService.createKeypair(newConsorcio.id);
       newConsorcio.setStellarAccount(consorcioSAccount);
