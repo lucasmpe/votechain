@@ -135,7 +135,7 @@
 
                             
                             {{#each options}}
-                            <form id="vote" action="/consorcista/{{../idConsorcista}}/votacion/{{../idVotacion}}/vote"
+                            <form id="vote" action="/consorcista/{{../ownerId}}/votacion/{{../idVotacion}}/{{../idConsorcista}}/vote"
                                 method="POST">
                                 <div
                                     class="relative z-10 border border-gray-300 w-full max-w-xl my-8 bg-white rounded-lg shadow-lg lg:w-96 sm:my-5">
