@@ -35,6 +35,8 @@ export default class VotacionService {
       consorcista.addVts({ votacion: id, votosEmitidos: [] });
     }
 
+    consorcio.addVotacion(id);
+
     this.repository.updateConsorcio(consorcio);
     this.repository.saveVoting(newVotacion);
 

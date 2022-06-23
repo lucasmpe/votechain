@@ -1,5 +1,7 @@
+// import session from 'express-session';
 import ConsorcioService from '../services/ConsorcioService.js'
 import VotacionService from '../services/VotacionService.js'
+
 export default class ConsorcioController {
 
   constructor() {
@@ -7,8 +9,21 @@ export default class ConsorcioController {
     this.votacionService = new VotacionService();
   }
 
+  viewInit(req, res) {
+    const IdsConsorcios = this.consorcioService.getIdsConsorcios();
+    res.render('consorcio', IdsConsorcios.length !== 0 && { IdsConsorcios });
+  };
+
   view(req, res) {
-    res.render('consorcio');
+    const { id } = req.params;
+    // console.log('view', req.session)
+    // res.render('consorcio', Object.keys(req.session).includes('idVotacion') ? { id, idVotacion: req.session.idVotacion } : { id });
+    // req.session.idVotacion = "";
+
+    const IdsVotaciones = this.consorcioService.getVotaciones(id);
+    console.log(IdsVotaciones)
+
+    res.render('consorcio', { id, votaciones: IdsVotaciones });
   };
 
   addField(req, res) {
@@ -44,7 +59,7 @@ export default class ConsorcioController {
 
       const id = await this.consorcioService.create(name, consorcistas);
 
-      res.redirect(`/consorcio/${id}/votacion`);
+      res.redirect(`/consorcio/${id}`);
     } catch (error) {
       console.log(error);
     }
@@ -85,8 +100,11 @@ export default class ConsorcioController {
       titles.forEach((option, i) => options.push({"option": option, "info": infos[i]})); // [{option: juan, info: ww}, {option: pepe, info: rrr}]
 
       const idVotacion = await this.votacionService.create(Number(id), details, subject, options); //falta ending
-      
-      res.redirect(`/consorcio/${id}/votacion/${idVotacion}`);
+
+      // req.session.idVotacion = idVotacion;
+      // console.log('createVoting', req.session)
+
+      res.redirect(`/consorcio/${id}`);
     } catch (error) {
       console.log(error);
     }

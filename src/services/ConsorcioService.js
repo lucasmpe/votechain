@@ -35,4 +35,17 @@ export default class ConsorcioService {
     }
   }
 
+  getVotaciones(idConsorcio) {
+    return this.repository.getVotaciones(idConsorcio);
+  }
+
+  getIdsConsorcios() {
+    return this.repository.getAllIdsConsorcios();
+  }
+
+  getIdsConsorcistas(idConsorcio) {
+    const consorcio = this.repository.getConsorcioById(idConsorcio);
+    return consorcio.getConsorcistas().map(consorcista => consorcista.getId());
+  }
+
 }
