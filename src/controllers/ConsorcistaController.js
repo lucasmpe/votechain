@@ -31,9 +31,8 @@ export default class ConsorcistaController {
       const { idVotacion, idConsorcista } = req.params;
       const { depto, ownerId, details, subject, options, active, saldo } = this.votacionService.viewVoting(idVotacion, idConsorcista);
 
-      const consorcistas = await this.votacionService.getDataConsorcistas();
+      const consorcistas = this.consorcioService.getConsorcistas(ownerId);
       const account = await this.consorcioService.getConsorcioAccount(ownerId);
-      console.log(account)
 
       res.render('votacion', { depto, ownerId, idVotacion, idConsorcista, details, subject, options, active, saldo, consorcistas, account });
     } catch (error) {

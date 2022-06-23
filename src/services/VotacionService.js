@@ -107,11 +107,4 @@ export default class VotacionService {
     return { subject, details, countVotes };
   }
 
-//prueba
-async getDataConsorcistas(){
-  const ownerId = 1683;
-  const consorcio = this.repository.getConsorcioById(ownerId);
-  return consorcio.consorcistas
-}
-
 }

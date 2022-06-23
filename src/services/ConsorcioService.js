@@ -53,4 +53,9 @@ export default class ConsorcioService {
     return consorcio.getAccount();
   }
 
+  getConsorcistas(idConsorcio) {
+    const consorcio = this.repository.getConsorcioById(idConsorcio);
+    return consorcio.getConsorcistas();
+  }
+
 }
