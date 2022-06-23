@@ -58,4 +58,8 @@ export default class Consorcista {
     return this.depto;
   }
 
+  getId() {
+    return this.id;
+  }
+
 }

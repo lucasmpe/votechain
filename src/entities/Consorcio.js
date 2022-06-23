@@ -21,6 +21,10 @@ export default class Consorcio {
     return this.id;
   }
 
+  getVotaciones() {
+    return this.votaciones;
+  }
+
   setStellarAccount(account) {
     this.account = account;
   }
@@ -37,12 +41,22 @@ export default class Consorcio {
     this.assets.push({assetCode, amount}); // [{assetCode: valor, amount: valor}]
   }
 
-  addVotacion(votacion) {}
+  addVotacion(IdVotacion) {
+    this.votaciones.push(IdVotacion);
+  }
+
+  getConsorcistas() {
+    return this.consorcistas;
+  }
 
   distribute() {}
 
   post(votacion) {}
 
   showResults(votacion) {}
+
+  getAccount(){
+    return this.account;
+  }
 
 };
