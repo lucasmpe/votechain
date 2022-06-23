@@ -5,7 +5,10 @@ import Votacion from '../entities/Votacion.js';
 
 export default class Repository {
 
-  getAllConsorcios() {};
+  getAllIdsConsorcios() {
+    const consorcios = JSON.parse(fs.readFileSync(process.cwd() + '/repository/consorcios.json'));
+    return consorcios.map(consorcio => consorcio.id); // [...]
+  };
 
   getConsorcioById(id) {
     const consorcios = JSON.parse(fs.readFileSync(process.cwd() + '/repository/consorcios.json'));
@@ -103,5 +106,10 @@ export default class Repository {
 
     return new Consorcista(id, depto, vt, account, vts);
   };
+
+  getVotaciones(idConsorcio) {
+    const consorcio = this.getConsorcioById(idConsorcio);
+    return consorcio.getVotaciones(); //[...]
+  }
 
 }
