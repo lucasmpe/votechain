@@ -179,11 +179,15 @@
         <p class="text-red-500">*the following buttons are displayed for practical reasons, users will not have access to the key pairs, and each user will have access only to his or her account</p>
         {{#each consorcistas}}
         <div class="my-2">
-            <a href="/consorcista/{{this.id}}/votacion/{{../idVotacion}}" class="border border-1 p-2 bg-gray-400 my-2" >Vote as {{this.depto}}</a>
+            <a href="/consorcista/{{../ownerId}}/votacion/{{../idVotacion}}/{{this.id}}" class="border border-1 p-2 bg-gray-400 my-2" >Vote as {{this.depto}}</a>
             <p class="my-4">Public key to checkout balance: {{this.account.publicKey}}</p>
         </div>
 
         {{/each}}
+        <div class="my-2">
+            <p class="text-red-500">*the public key of the consortium is shown for practical reasons, in order to be able to compare the balances between distributor and members.</p>
+            <p class="my-4">Consortium public key to checkout balance: {{account.publicKey}}</p>
+        </div>
         </div>
 
     </div>

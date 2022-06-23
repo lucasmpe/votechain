@@ -55,4 +55,8 @@ export default class Consorcio {
 
   showResults(votacion) {}
 
+  getAccount(){
+    return this.account;
+  }
+
 };
